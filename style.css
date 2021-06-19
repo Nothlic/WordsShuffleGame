@@ -1,42 +1,3 @@
-@font-face {
-  font-family: "PizzaDuke";
-  src: url("./pizzaduke.otf");
-}
-
-.device {
-  display: none;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-  .device {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    width: 100%;
-    height: 100vh;
-    -o-object-fit: contain;
-       object-fit: contain;
-  }
-  .game-section {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-  .device {
-    display: none;
-  }
-  .game-section {
-    display: block;
-  }
-}
-
 body {
   margin: 0;
   background: #fff;
@@ -45,12 +6,11 @@ body {
      -moz-user-select: none;
       -ms-user-select: none;
           user-select: none;
-  font-family: "PizzaDuke" !important;
 }
 
 .logo-main img {
-  width: 70px;
-  height: 70px;
+  width: 90px;
+  height: 90px;
 }
 
 .logo {
@@ -125,27 +85,6 @@ body {
      object-fit: contain;
 }
 
-#preview {
-  display: none;
-}
-
-.points-wrapper {
-  text-align: center;
-  background-color: red;
-  width: 15%;
-  height: 8%;
-  position: absolute;
-  bottom: 70px;
-  left: 45%;
-  display: none;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  padding-top: 3px;
-}
 
 #lContainer {
   top: unset !important;
@@ -154,30 +93,11 @@ body {
 }
 
 #gameContainer {
-  position: absolute;
-  top: -108px;
+  background-color: rgba(0, 0, 0, 0.2);
+  position:absolute;
+  top:-108px;
+  left:267px;
 }
-
-/* @media screen and (min-width: 568px) and (max-width: 568px) {
-  #gameContainer {
-    top: -50%;
-    right: -11%;
-  }
-}
-
-@media screen and (min-width: 731px) and (max-width: 731px) {
-  #gameContainer {
-    top: -122px;
-    left: 50.4% !important;
-  }
-}
-
-@media screen and (min-width: 823px) and (max-width: 823px) {
-  #gameContainer {
-    top: -125px;
-    left: 56.5333% !important;
-  }
-} */
 
 #wcont {
   display: -webkit-box;
@@ -283,252 +203,29 @@ button {
 }
 
 #l1 {
-  top: -55px;
+  top: -24%;
   left: 106.5%;
 }
 
-<<<<<<< HEAD
-/* 
-=======
->>>>>>> ba2b6ff (merge vincent julindra)
-@media screen and (min-width: 731px) and (max-width: 736px) {
-  #l1 {
-    background-color: red;
-    top: -2em;
-    right: -3em;
-    left: unset;
-  }
-}
-
-@media screen and (min-width: 823px) and (max-width: 823px) {
-  #l1 {
-    left: unset;
-    top: -5rem;
-    right: -10.5rem;
-  }
-}
-
-@media screen and (min-width: 667px) and (max-width: 667px) {
-  #l1 {
-    top: -65px;
-    left: 113.5%;
-  }
-}
-
-@media screen and (min-width: 812px) and (max-width: 812px) {
-  #l1 {
-    left: unset;
-    top: -3.2rem;
-    right: -10.2rem;
-  }
-<<<<<<< HEAD
-} */
-=======
-}
->>>>>>> ba2b6ff (merge vincent julindra)
-
 #l2 {
-  left: 144%;
+  left: 151px;
   top: 4%;
-}
-/* 
-@media screen and (min-width: 731px) and (max-width: 736px) {
-  #l2 {
-    top: 0em;
-    right: -1em;
-    left: unset;
-  }
-}
-
-@media screen and (min-width: 823px) and (max-width: 823px) {
-  #l2 {
-    top: 0;
-    right: -5.5rem;
-    left: unset;
-  }
-}
-
-@media screen and (min-width: 667px) and (max-width: 667px) {
-  #l2 {
-    left: 167px;
-    top: 4%;
-  }
-}
-
-@media screen and (min-width: 812px) and (max-width: 812px) {
-  #l2 {
-    right: -2em;
-    left: unset;
-  }
-} */
-
-@media screen and (min-width: 731px) and (max-width: 736px) {
-  #l2 {
-    top: 0em;
-    right: -1em;
-    left: unset;
-  }
-}
-
-@media screen and (min-width: 823px) and (max-width: 823px) {
-  #l2 {
-    top: 0;
-    right: -5.5rem;
-    left: unset;
-  }
-}
-
-@media screen and (min-width: 667px) and (max-width: 667px) {
-  #l2 {
-    left: 167px;
-    top: 4%;
-  }
-}
-
-@media screen and (min-width: 812px) and (max-width: 812px) {
-  #l2 {
-    right: -2em;
-    left: unset;
-  }
 }
 
 #l3 {
   top: 4%;
-  right: 6%;
+  right: -151px;
 }
-/* 
-@media screen and (min-width: 731px) and (max-width: 736px) {
-  #l3 {
-    top: 0;
-    right: -5em;
-  }
-}
-
-@media screen and (min-width: 823px) and (max-width: 823px) {
-  #l3 {
-    top: 0;
-    right: -16rem;
-  }
-}
-
-<<<<<<< HEAD
-=======
-@media screen and (min-width: 731px) and (max-width: 736px) {
-  #l3 {
-    top: 0;
-    right: -5em;
-  }
-}
-
-@media screen and (min-width: 823px) and (max-width: 823px) {
-  #l3 {
-    top: 0;
-    right: -16rem;
-  }
-}
-
->>>>>>> ba2b6ff (merge vincent julindra)
-@media screen and (min-width: 667px) and (max-width: 667px) {
-  #l3 {
-    top: 4%;
-    right: -162px;
-  }
-}
-
-@media screen and (min-width: 812px) and (max-width: 812px) {
-  #l3 {
-    right: -15rem;
-  }
-<<<<<<< HEAD
-} */
-=======
-}
->>>>>>> ba2b6ff (merge vincent julindra)
 
 #l4 {
   top: 48%;
   left: 80.5%;
 }
 
-<<<<<<< HEAD
-/* @media screen and (min-width: 731px) and (max-width: 736px) {
-=======
-@media screen and (min-width: 731px) and (max-width: 736px) {
->>>>>>> ba2b6ff (merge vincent julindra)
-  #l4 {
-    top: 2.5em;
-    left: unset;
-    right: -1.5em;
-  }
-}
-
-@media screen and (min-width: 823px) and (max-width: 823px) {
-  #l4 {
-    top: 6rem;
-    left: unset;
-    right: -7rem;
-  }
-}
-
-@media screen and (min-width: 667px) and (max-width: 667px) {
-  #l4 {
-    top: 48%;
-    left: 87.5%;
-  }
-}
-
-@media screen and (min-width: 812px) and (max-width: 812px) {
-  #l4 {
-    top: 7rem;
-    left: unset;
-    right: -6.5rem;
-  }
-<<<<<<< HEAD
-} */
-=======
-}
->>>>>>> ba2b6ff (merge vincent julindra)
-
 #l5 {
   top: 48%;
   right: -55.5%;
 }
-
-<<<<<<< HEAD
-/* @media screen and (min-width: 731px) and (max-width: 736px) {
-=======
-@media screen and (min-width: 731px) and (max-width: 736px) {
->>>>>>> ba2b6ff (merge vincent julindra)
-  #l5 {
-    top: 2.5em;
-    right: -4.5em;
-  }
-}
-
-@media screen and (min-width: 823px) and (max-width: 823px) {
-  #l5 {
-    top: 6rem;
-    right: -14rem;
-  }
-}
-
-@media screen and (min-width: 667px) and (max-width: 667px) {
-  #l5 {
-    top: 48%;
-    right: -64.5%;
-  }
-}
-
-@media screen and (min-width: 812px) and (max-width: 812px) {
-  #l5 {
-    top: 7rem;
-    right: -14rem;
-  }
-<<<<<<< HEAD
-} */
-=======
-}
->>>>>>> ba2b6ff (merge vincent julindra)
 
 #preview {
   position: absolute;
@@ -657,6 +354,7 @@ button {
 #title {
   font-size: 45px;
   font-weight: 900;
+  font-family: cursive;
   -webkit-background-clip: text;
   color: black;
 }
@@ -664,6 +362,7 @@ button {
 #complete {
   font-size: 45px;
   font-weight: 900;
+  font-family: cursive;
   background: -webKit-linear-gradient(bottom left, #99f714, #fff, #ea1444);
   -webkit-background-clip: text;
   color: transparent;

@@ -1,56 +1,8 @@
-@font-face {
-  font-family: "PizzaDuke";
-  src: url("./pizzaduke.otf");
-}
-$screen-xs: 0px;
-$screen-sm: 480px;
-$screen-md: 768px;
-$screen-lg: 1024px;
-$screen-sp-lg: 1440px;
-
-.device {
-  display: none;
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: portrait) {
-  .device {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 100vh;
-    object-fit: contain;
-  }
-
-  .game-section {
-    display: none;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 767px) and (orientation: landscape) {
-  .device {
-    display: none;
-  }
-
-  .game-section {
-    display: block;
-  }
-}
-
-@media screen and (orientation: portrait) {
-  // CSS applied when the device is in portrait mode
-}
-
-@media screen and (orientation: landscape) {
-  // CSS applied when the device is in landscape mode
-}
-
 body {
   margin: 0;
   background: #fff;
   font-family: arial;
   user-select: none;
-  font-family: "PizzaDuke" !important;
 }
 
 .logo-main {
@@ -111,24 +63,6 @@ body {
   }
 }
 
-#preview {
-  display: none;
-}
-
-.points-wrapper {
-  text-align: center;
-  background-color: red;
-  width: 15%;
-  height: 8%;
-  position: absolute;
-  bottom: 70px;
-  left: 45%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  padding-top: 3px;
-}
-
 //background
 #lContainer {
   top: unset !important;
@@ -136,27 +70,7 @@ body {
   bottom: 10% !important;
 }
 #gameContainer {
-  // background-color: rgba(0, 0, 0, 0.2) !important;
-  position: absolute;
-  // top: -30%;
-  // right: -5%;
-
-  top: -108px;
-
-  // @media screen and (min-width: 568px) and (max-width: 568px) {
-  //   top: -50%;
-  //   right: -11%;
-  // }
-
-  // @media screen and (min-width: 731px) and (max-width: 731px) {
-  //   top: -122px;
-  //   left: 50.4% !important;
-  // }
-
-  // @media screen and (min-width: 823px) and (max-width: 823px) {
-  //   top: -125px;
-  //   left: 56.5333% !important;
-  // }
+  background-color: rgba(0, 0, 0, 0.2);
 }
 
 #wcont {
@@ -188,8 +102,6 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  // position: relative;
-  // background-color: rgba(255, 255, 255, 0.8);
 }
 #container {
   position: absolute;
@@ -239,145 +151,26 @@ button {
   transition: transform 0.1s linear;
   text-transform: uppercase;
 }
-
 #l1 {
-  top: -55px;
-  left: 106.5%;
-  // @media screen and (min-width: $screen-sm) and (max-width: $screen-sm) {
-  //   top: calc(100% - 38vw);
-  //   right: calc(100% - 45vw);
-  //   left: unset;
-  // }
-
-  @media screen and (min-width: 731px) and (max-width: 736px) {
-    background-color: red;
-    top: -2em;
-    right: -3em;
-    left: unset;
-  }
-
-  @media screen and (min-width: 823px) and (max-width: 823px) {
-    left: unset;
-    top: -5rem;
-    right: -10.5rem;
-  }
-
-  @media screen and (min-width: 667px) and (max-width: 667px) {
-    top: -65px;
-    left: 113.5%;
-  }
-
-  @media screen and (min-width: 812px) and (max-width: 812px) {
-    left: unset;
-    top: -3.2rem;
-    right: -10.2rem;
-  }
+  top: 0;
+  left: 37.5%;
 }
-
 #l2 {
-  left: 151px;
-  top: 4%;
-
-  @media screen and (min-width: 731px) and (max-width: 736px) {
-    top: 0em;
-    right: -1em;
-    left: unset;
-  }
-
-  @media screen and (min-width: 823px) and (max-width: 823px) {
-    top: 0;
-    right: -5.5rem;
-    left: unset;
-  }
-
-  @media screen and (min-width: 667px) and (max-width: 667px) {
-    left: 167px;
-    top: 4%;
-  }
-
-  @media screen and (min-width: 812px) and (max-width: 812px) {
-    right: -2em;
-    left: unset;
-  }
+  left: 0;
+  top: 29%;
 }
-
 #l3 {
-  top: 4%;
-  right: -151px;
-
-  @media screen and (min-width: 731px) and (max-width: 736px) {
-    top: 0;
-    right: -5em;
-  }
-
-  @media screen and (min-width: 823px) and (max-width: 823px) {
-    top: 0;
-    right: -16rem;
-  }
-
-  @media screen and (min-width: 667px) and (max-width: 667px) {
-    top: 4%;
-    right: -162px;
-  }
-
-  @media screen and (min-width: 812px) and (max-width: 812px) {
-    right: -15rem;
-  }
+  top: 29%;
+  right: 0;
 }
-
 #l4 {
-  top: 48%;
-  left: 80.5%;
-
-  @media screen and (min-width: 731px) and (max-width: 736px) {
-    top: 2.5em;
-    left: unset;
-    right: -1.5em;
-  }
-
-  @media screen and (min-width: 823px) and (max-width: 823px) {
-    top: 6rem;
-    left: unset;
-    right: -7rem;
-  }
-
-  @media screen and (min-width: 667px) and (max-width: 667px) {
-    top: 48%;
-    left: 87.5%;
-  }
-
-  @media screen and (min-width: 812px) and (max-width: 812px) {
-    top: 7rem;
-    left: unset;
-    right: -6.5rem;
-  }
+  top: 75%;
+  left: 12.5%;
 }
-
 #l5 {
-  top: 48%;
-  right: -55.5%;
-
-  @media screen and (min-width: 731px) and (max-width: 736px) {
-    top: 2.5em;
-    right: -4.5em;
-  }
-
-  @media screen and (min-width: 823px) and (max-width: 823px) {
-    top: 6rem;
-    right: -14rem;
-  }
-
-  @media screen and (min-width: 667px) and (max-width: 667px) {
-    top: 48%;
-    right: -64.5%;
-  }
-
-  @media screen and (min-width: 812px) and (max-width: 812px) {
-    top: 7rem;
-    right: -14rem;
-  }
+  top: 75%;
+  right: 12.5%;
 }
-
 #preview {
   position: absolute;
   top: -60px;
@@ -485,12 +278,14 @@ button {
 #title {
   font-size: 45px;
   font-weight: 900;
+  font-family: cursive;
   -webkit-background-clip: text;
   color: black;
 }
 #complete {
   font-size: 45px;
   font-weight: 900;
+  font-family: cursive;
   background: -webKit-linear-gradient(bottom left, #99f714, #fff, #ea1444);
   -webkit-background-clip: text;
   color: transparent;
