@@ -5,6 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
+    <style>
+        .swal-modal .swal-text {
+            text-align: center;
+        }
+        .swal-overlay {
+           background-color: rgba(0, 0, 0, 0.6);
+        }
+        .swal-modal {
+            border: 15px solid  rgb(219, 39, 39);
+            border-radius: 30px;
+            width: 390px;
+        }
+        .swal-title {
+            color: rgb(219, 39, 39);
+            
+        }
+    </style>
 </head>
 
 <body>
@@ -19,15 +36,22 @@
             <span style="left:60%;animation-delay:2s;animation:anim2 11s ease-in-out infinite;">🎈</span>
             <span style="left:85%;animation-delay:5s;animation:anim2 6s linear infinite;">🌼</span>
         </div>
+
+        <div class="logo">
+            <img src="logo.png" />
+        </div>
+
         <div id="wContainer">
             <div id="topBar">
                 <h3 id="levelDiv"><span id="level">Level <span id="levelNum">1</span></span><span id="coinDiv"><span
                             id="coin">0</span><span id="coinSign">💰</span></span></h3>
                 <div id="wcont">
+                    <div class="texttesting1" style="margin-left: 7px;"></div>
                     <div class="word">
                         <!--<div class="wld">.</div>
                         <div class="wld">.</div>-->
                     </div>
+                    <div class="texttesting2" style="margin-left: 7px;"></div>
                     <div class="word"></div>
                     <div class="word"></div>
                     <div class="word"></div>
@@ -35,18 +59,29 @@
                 </div>
             </div>
         </div>
-        <div id="lContainer">
-            <div id="l1" class="l"></div>
-            <div id="l2" class="l"></div>
-            <div id="l3" class="l"></div>
-            <div id="l4" class="l"></div>
-            <div id="l5" class="l"></div>
-            <div id="preview"><span id="previewTxt"></span></div>
+        <div class="wrapper">
+            <div id="lContainer">
+                <div id="l1" class="l"></div>
+                <div id="l2" class="l"></div>
+                <div id="l3" class="l"></div>
+                <div id="l4" class="l"></div>
+                <div id="l5" class="l"></div>
+                <div id="preview" style="margin-top: 20px;"><span id="previewTxt"></span></div>
+            </div>
+            <canvas id="gameContainer" style="background:transparent;"></canvas>
         </div>
-        <canvas id="gameContainer"></canvas>
 
+
+        <div style="margin-top: 20px;text-align: center;font-size: 30px;color: red;font-weight: bold;" class="timer"></div>
+        <center>
+            <div style="margin-top: 220px;text-align: center;background-color: red;width: 15%;height: 8%;" class="pointes"></div>
+        </center>
+        
         <div id="over">
-            <h2 id="complete"><span id="title">Word Shuffle</span></h2>
+            <h2 id="complete"><span id="title">Main Kata</span></h2>
+            <div class="logo-main" id="logoBukan">
+                <img src="bukanmainlogo.png" />
+            </div>
             <div id="starCnt">
                 <div id="starbg"><span id="stb1">⭐</span><span id="stb2">⭐</span><span id="stb3">⭐</span></div>
                 <div id="star"><span>⭐</span><span>⭐</span><span>⭐</span></div>
@@ -56,7 +91,7 @@
                     <button id="levelBtn">Levels</button>
                 </div>
                 <button id="nextBtn">Next Level</button>
-                <button id="st">Play</button>
+                <button id="st">MULAI</button>
             </div>
             <div id="levelCnt">
                 <div id="levelTitle">
@@ -72,7 +107,22 @@
         <div id="shuffle">🔄</div>
         <div id="hint">💡</div>
     </div>
+
+    <div class="footer">
+        <div class="smoking-image-wrapper">
+            <img src="resiko.jpg" />
+        </div>
+        <div class="info-footer-wrapper">
+            <div class="title">PERINGATAN</div>
+            <div class="description">KARENA MEROKOK, SAYA TERKENA KANKER TENGGOKAN. LAYANAN BERHENTI MEROKOK
+                (0800-177-6565)</div>
+        </div>
+        <div class="logo-mini">
+            <img src="18.png" />
+        </div>
+    </div>
 </body>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script>
     window.onload = function () {
         "use strict";
@@ -125,6 +175,23 @@
         sounds.shuffle.src = myDomain + "wsnd/shuffle.ogg";
         sounds.extraWord.src = myDomain + "wsnd/extra_word.ogg";
 
+        function startTimer(duration, display) {
+            var timer = duration, minutes, seconds;
+            setInterval(function () {
+                minutes = parseInt(timer / 60, 10);
+                seconds = parseInt(timer % 60, 10);
+
+                minutes = minutes < 10 ? "0" + minutes : minutes;
+                seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                display.textContent = minutes + ":" + seconds;
+
+                if (--timer < 0) {
+                    timer = duration;
+                }
+            }, 1000);
+        }
+
         function play(x) {
             if (canPlay) {
                 try {
@@ -146,7 +213,58 @@
         var nextBtnCnt = _s("nextBtnCnt");
 
         function startPlay() {
+            swal({
+                title: "ISI 'QUOTES' NYA",
+                text: "TARIK HURUF YANG BENAR DARI KUMPULAN HURUF RANDOM YANG TERSEDIA DAN ISI AREA KOSONG UNTUK MEMBENTUK KATA YANG TEPAT SESUAI QUOTES BUKAN MAIN",
+                buttons: ["SKIP", "LANJUT"],
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete) {
+                    swal({
+                        title: "KUMPULKAN POINNYA",
+                        text: "DAPATKAN 10 POIN UNTUK SETIAP QUOTES YANG LENGKAP DALAM 60 DETIK. APABILA SUDAH MENYELESAIKAN SEMUA QUOTES, PERMAINAN AKAN KEMBALI KE AWAL POIN MENJADI 20 DAN WAKTU 30 DETIK.",
+                        buttons: ["SKIP", "LANJUT"],
+                        dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                        if (willDelete) {
+                            swal({
+                                title: "HADIAH",
+                                text: "DAPATKAN ITEM MENARIK YANG BISA LO DAPATKAN SETIAP MINGGUNYA SELAMA PERIODE BUKAN MAIN",
+                                buttons: ["SKIP", "LANJUT"],
+                                dangerMode: true,
+                            })
+                            .then((willDelete) => {
+                                if (willDelete) {
+                                    swal({
+                                        title: "PENGUMUMAN PEMENANG",
+                                        text: "PEMENANG SETIAP MINGGUNYA ADALAH LO YANG PUNYA POIN TERBANYAK DAN KAMI HUBUNGI",
+                                        buttons: ["SKIP", "LANJUT"],
+                                        dangerMode: true,
+                                    })
+                                    .then((willDelete) => {
+                                        if (willDelete) {
+
+                                        } else {
+                                            
+                                        }
+                                    });
+                                } else {
+                                    
+                                }
+                            });
+                        } else {
+                            
+                        }
+                    });
+                } else {
+                    
+                }
+            });
+            
             _s("st").style.display = "none";
+            _s("logoBukan").style.display = "none";
             levelBtn.style.display = "inline-block";
             //lContainer.style.transform = "scale(1)";
             nextBtn.style.display = "inline-block";
@@ -202,8 +320,8 @@
         var previewTxt = _s("previewTxt");
 
         var levels = [
-            [['GIVE', 'GIVEN'], ['GIEN', 'VEIN', 'VINE', 'GEN', 'GIE', 'GIN', 'VEG', 'VIE']],
-            [['ICE', 'VICE', 'VOICE'], ['COVE', 'ECO', 'VIE']],
+            [['KERE', 'KEREN'],, ['GIEN', 'VEIN', 'VINE', 'GEN', 'GIE', 'GIN', 'VEG', 'VIE']],
+            [['ICED', 'ICEDS'], ['COVE', 'ECO', 'VIE']],
             [['ME', 'MY', 'MERRY'], ['ERR', 'RYE', 'YER']],
             [['IT', 'HIT', 'TICK', 'THICK'], ['CHIK', 'CHIT', 'HICK', 'ITCH', 'KIT', 'TIC']],
             [['HE', 'WE', 'LIE', 'WHILE'], ['WILE', 'HEW', 'HIE', 'LEI']],
@@ -258,16 +376,21 @@
 
         ]
         //styling line tarik-tarik
+        //koordinat
         var points = [[Math.round(ll + w / 2), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 4), Math.round(ltp + ct + ch * 87.5 / 100)], [Math.round(ll + w - (cl + cw / 4)), Math.round(ltp + ct + ch * 87.5 / 100)]];
+        console.log(points);
         var linePoints = [];
         var started = true;
 
-        ctx.lineWidth = 9;
-        ctx.strokeStyle = "blue";
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "black";
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
 
         function drawLine(x, y) {
+            // console.log('x :', x);
+            // console.log('y :', y);
+            // console.log(linePoints);
             if (linePoints[0] >= 0) {
                 ctx.clearRect(0, 0, w, h);
                 ctx.beginPath();
@@ -357,7 +480,7 @@
                 drawLine(points[linePoints[linePoints.length - 1]][0], points[linePoints[linePoints.length - 1]][1]);
                 setTimeout(function () {
                     ctx.clearRect(0, 0, w, h);
-                    ctx.strokeStyle = "blue";
+                    ctx.strokeStyle = "black";
                     previewTxt.textContent = "";
                     previewTxt.style.background = "rgba(240,240,240,0.8)";
                     previewTxt.style.color = "#666";
@@ -371,8 +494,8 @@
             var touchObject, tx, ty;
             if (started) {
                 touchObject = e.changedTouches[0];
-                tx = parseInt(touchObject.clientX);
-                ty = parseInt(touchObject.clientY);
+                tx = parseInt(touchObject.clientX) - 133.5;
+                ty = parseInt(touchObject.clientY) + 108;
                 for (var n = 0; n < 5; n++) {
                     if (Math.sqrt(Math.pow(points[n][0] - tx, 2) + Math.pow(points[n][1] - ty, 2)) < 30) {
                         linePoints.push(n);
@@ -392,18 +515,21 @@
             var touchObject, tx, ty;
             if (!started) {
                 touchObject = e.changedTouches[0];
-                tx = parseInt(touchObject.clientX);
-                ty = parseInt(touchObject.clientY);
+                console.log(e.changedTouches[0]);
+                tx = parseInt(touchObject.clientX) - 133.5;
+                ty = parseInt(touchObject.clientY) + 108;
                 for (var n = 0; n < 5; n++) {
                     if (Math.sqrt(Math.pow(points[n][0] - tx, 2) + Math.pow(points[n][1] - ty, 2)) < 30) {
                         if (linePoints.indexOf(n) === -1) {
                             linePoints.push(n);
+                            console.log(linePoints);
                             //play("select");
                             previewTxt.textContent += lt[n].textContent;
                             play("select");
                         }
                     }
                 }
+                // console.log(tx, ty);
                 drawLine(tx, ty);
             }
         })
@@ -422,6 +548,7 @@
         //Mouse events...
         var msdn = false;
         c.addEventListener("mousedown", function (e) {
+
             e.preventDefault();
             msdn = true;
             var touchObject, tx, ty;
@@ -496,8 +623,23 @@
         var currentLevel = 0;
         var currentWord = "";
         var wcnt = document.getElementsByClassName("word");
+        var tes1 = document.getElementsByClassName("texttesting1");
+        var tes2 = document.getElementsByClassName("texttesting2");
+        var timer1 = document.getElementsByClassName("timer");
+        var poin1 = document.getElementsByClassName("pointes");
 
-        function startLevel(ln) {
+        function startLevel(ln) { 
+            tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>BELUM</div>"; 
+            tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>KALO BELUM</div>";
+ 
+            timer1[0].innerHTML= "01:00";
+            poin1[0].innerHTML= "<img src='koin.png' style='width:27%;margin-top:-5px;'> <font class='nilai' size='5px' color='white'>10</font>";
+            //timer
+            var fiveMinutes = 60 * 1,
+            display = document.querySelector('.timer');
+            startTimer(fiveMinutes, display);
+            //
+
             currentLevel = ln;
             ctx.fillRect(0, 0, w, h);
             completeDiv.style.display = "none";
