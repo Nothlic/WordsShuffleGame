@@ -158,7 +158,7 @@ body {
   top: -108px;
 }
 
-@media screen and (min-width: 568px) and (max-width: 568px) {
+/* @media screen and (min-width: 568px) and (max-width: 568px) {
   #gameContainer {
     top: -50%;
     right: -11%;
@@ -177,7 +177,7 @@ body {
     top: -125px;
     left: 56.5333% !important;
   }
-}
+} */
 
 #wcont {
   display: -webkit-box;
@@ -287,6 +287,7 @@ button {
   left: 106.5%;
 }
 
+/* 
 @media screen and (min-width: 731px) and (max-width: 736px) {
   #l1 {
     background-color: red;
@@ -317,13 +318,13 @@ button {
     top: -3.2rem;
     right: -10.2rem;
   }
-}
+} */
 
 #l2 {
-  left: 151px;
+  left: 144%;
   top: 4%;
 }
-
+/* 
 @media screen and (min-width: 731px) and (max-width: 736px) {
   #l2 {
     top: 0em;
@@ -352,13 +353,13 @@ button {
     right: -2em;
     left: unset;
   }
-}
+} */
 
 #l3 {
   top: 4%;
-  right: -151px;
+  right: 6%;
 }
-
+/* 
 @media screen and (min-width: 731px) and (max-width: 736px) {
   #l3 {
     top: 0;
@@ -384,14 +385,14 @@ button {
   #l3 {
     right: -15rem;
   }
-}
+} */
 
 #l4 {
   top: 48%;
   left: 80.5%;
 }
 
-@media screen and (min-width: 731px) and (max-width: 736px) {
+/* @media screen and (min-width: 731px) and (max-width: 736px) {
   #l4 {
     top: 2.5em;
     left: unset;
@@ -420,14 +421,14 @@ button {
     left: unset;
     right: -6.5rem;
   }
-}
+} */
 
 #l5 {
   top: 48%;
   right: -55.5%;
 }
 
-@media screen and (min-width: 731px) and (max-width: 736px) {
+/* @media screen and (min-width: 731px) and (max-width: 736px) {
   #l5 {
     top: 2.5em;
     right: -4.5em;
@@ -453,7 +454,7 @@ button {
     top: 7rem;
     right: -14rem;
   }
-}
+} */
 
 #preview {
   position: absolute;
