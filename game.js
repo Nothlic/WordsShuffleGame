@@ -39,13 +39,13 @@
         // var w = (vw > 400) ? 400 : vw;
         // var h = (vh > 700) ? 700 : vh;
 
-        if (vw == 731) {
-            vw = vw + 100;
-        }
+        // if (vw == 731) {
+        //     vw = vw + 100;
+        // }
 
-        if (vw == 823) {
-            vw = vw + 170;
-        }
+        // if (vw == 823) {
+        //     vw = vw + 170;
+        // }
 
         var w = (vw > 400) ? 400 : vw;
         var h = (vh > 700) ? 700 : vh;
@@ -542,11 +542,31 @@
         var timer1 = document.getElementsByClassName("timer");
         var poin1 = document.getElementsByClassName("points-wrapper");
 
+
         function startLevel(ln) {
+            
+
             _s("points-wrapper").style.display = "flex";
             var canv = _s("gameContainer");
-            var canv_left = (vw / 15);
-            canv.style.left = "" + canv_left + "" + "%";
+            var l1_left = _s("l1");
+            var l2_left = _s("l2");
+            var l3_left = _s("l3");
+            var l4_left = _s("l4");
+            var l5_left = _s("l5");
+            ///alert(vw);
+
+            var canv_left = (vw / 14);
+            canv.style.left = "" + canv_left + "" + "%";1
+            
+
+            var min = ((vw-600)/4);
+
+            l1_left.style.left = "" + (106.5+min) + "%";
+            l2_left.style.left = "" + (144+min) + "%";
+            l3_left.style.right = "" + (6-min) + "%";
+            l4_left.style.left = "" + (80.5+min) + "%";
+            l5_left.style.right = "" + (-55.5-min) + "%";
+
 
             tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>BELUM</div>";
             tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>KALO BELUM</div>";
