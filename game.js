@@ -234,7 +234,7 @@
         var previewTxt = _s("previewTxt");
 
         var levels = [
-            [['KERE', 'KEREN'], , ['GIEN', 'VEIN', 'VINE', 'GEN', 'GIE', 'GIN', 'VEG', 'VIE']],
+            [['KERE','KEREN'], , ['GIEN', 'VEIN', 'VINE', 'GEN', 'GIE', 'GIN', 'VEG', 'VIE']],
             [['ICED', 'ICEDS'], ['COVE', 'ECO', 'VIE']],
             [['ME', 'MY', 'MERRY'], ['ERR', 'RYE', 'YER']],
             [['IT', 'HIT', 'TICK', 'THICK'], ['CHIK', 'CHIT', 'HICK', 'ITCH', 'KIT', 'TIC']],
@@ -320,6 +320,7 @@
 
         var temp1 = [];
         var temp2 = [];
+        var tempTotalScore = 0;
         function clearLine() {
             var wordPos = levels[currentLevel][0].indexOf(currentWord);
             if (linePoints[0] >= 0) {
@@ -334,7 +335,13 @@
                     for (var n = 0; n < currentWord.length; n++) {
                         txt += "<div class='wld'>" + wordArr[n] + "</div>";
                     }
+                    score += 10;
+                    tempTotalScore += score;
+
+                    poin1[0].innerHTML = "<img src='koin.png' style='width:27%;margin-top:-5px;'> <font class='nilai' size='5px' color='white'>"+ tempTotalScore +"</font>";
+                    totalScore += score;
                     wcnt[wordPos].innerHTML = txt;
+                    score = 0;
 
                     if (temp1.indexOf(currentWord) < 0) {
                         temp1.push(currentWord);
@@ -344,7 +351,7 @@
                             temp1 = [];
                             temp2 = [];
                             setTimeout(function () {
-                                levelComplete();
+                                levelComplete(currentLevel);
                                 //    startLevel(currentLevel+1);
                             }, 2000)
 
@@ -552,7 +559,7 @@
             tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>KALO BELUM</div>";
 
             timer1[0].innerHTML = "01:00";
-            poin1[0].innerHTML = "<img src='koin.png' style='width:27%;margin-top:-5px;'> <font class='nilai' size='5px' color='white'>10</font>";
+            poin1[0].innerHTML = "<img src='koin.png' style='width:27%;margin-top:-5px;'> <font class='nilai' size='5px' color='white'>0</font>";
             //timer
             var fiveMinutes = 60 * 1,
                 display = document.querySelector('.timer');
@@ -651,8 +658,14 @@
         var wrong = 0;
         var totalCoin = 0;
         var bonusCoin = 0;
+        var score = 0;
+        var totalScore = 0;
+
         function levelComplete(x) {
             completeDiv.style.display = "block";
+            tempTotalScore = 0;
+            alert(totalScore);
+
             var starCount;
             if (wrong < 2) {
                 starCount = 3;
@@ -664,7 +677,7 @@
                 starCount = 1;
             }
             wrong = 0;
-            star(starCount);
+            // star(starCount);
             updateLevelMenu(currentLevel + 1, bonusCoin, starCount);
             bonusCoin = 0;
             play("levelComplete");
@@ -764,7 +777,7 @@
                     var wordPos = levels[currentLevel][0].indexOf(currentWord);
                     var txt = "";
                     var wordArr = currentWord.split("");
-
+                    
                     for (var n = 0; n < currentWord.length; n++) {
                         txt += "<div class='wld'>" + wordArr[n] + "</div>";
                     }
