@@ -3,123 +3,144 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta charset="utf-8">
     <link rel="stylesheet" href="style.css">
-    <style>
-        .swal-modal .swal-text {
-            text-align: center;
-        }
-        .swal-overlay {
-           background-color: rgba(0, 0, 0, 0.6);
-        }
-        .swal-modal {
-            border: 15px solid  rgb(219, 39, 39);
-            border-radius: 30px;
-            width: 390px;
-        }
-        .swal-title {
-            color: rgb(219, 39, 39);
-            
-        }
-    </style>
 </head>
 
 <body>
-    <div id="container">
-        <div id="bda">
-            <span style="left:5%;animation-delay:3s;animation:anim2 5s ease-in infinite;">💚</span>
-            <span style="left:40%;animation-delay:4s;animation:anim2 7s ease-out infinite;">⚡</span>
-            <span style="left:65%;animation-delay:2s;animation:anim2 16s ease-in-out infinite;">🌺</span>
-            <span style="left:80%;animation-delay:3s;animation:anim2 8s linear infinite;">❄</span>
-            <span style="left:20%;animation-delay:3s;animation:anim2 9s ease-in infinite;">👍</span>
-            <span style="left:50%;animation-delay:4s;animation:anim2 10s ease-out infinite;">🍁</span>
-            <span style="left:60%;animation-delay:2s;animation:anim2 11s ease-in-out infinite;">🎈</span>
-            <span style="left:85%;animation-delay:5s;animation:anim2 6s linear infinite;">🌼</span>
-        </div>
 
-        <div class="logo">
-            <img src="logo.png" />
-        </div>
+    <img src="devicemode.gif" class="device" />
+    <div class="game-section">
+        <div id="container">
+            <div id="bda">
+                <span style="left:5%;animation-delay:3s;animation:anim2 5s ease-in infinite;">💚</span>
+                <span style="left:40%;animation-delay:4s;animation:anim2 7s ease-out infinite;">⚡</span>
+                <span style="left:65%;animation-delay:2s;animation:anim2 16s ease-in-out infinite;">🌺</span>
+                <span style="left:80%;animation-delay:3s;animation:anim2 8s linear infinite;">❄</span>
+                <span style="left:20%;animation-delay:3s;animation:anim2 9s ease-in infinite;">👍</span>
+                <span style="left:50%;animation-delay:4s;animation:anim2 10s ease-out infinite;">🍁</span>
+                <span style="left:60%;animation-delay:2s;animation:anim2 11s ease-in-out infinite;">🎈</span>
+                <span style="left:85%;animation-delay:5s;animation:anim2 6s linear infinite;">🌼</span>
+            </div>
 
-        <div id="wContainer">
-            <div id="topBar">
-                <h3 id="levelDiv"><span id="level">Level <span id="levelNum">1</span></span><span id="coinDiv"><span
-                            id="coin">0</span><span id="coinSign">💰</span></span></h3>
-                <div id="wcont">
-                    <div class="texttesting1" style="margin-left: 7px;"></div>
-                    <div class="word">
-                        <!--<div class="wld">.</div>
-                        <div class="wld">.</div>-->
+            <div class="wrapper-logo" id='wrapper-logo'>
+
+                <button id="buttonBack">
+                    KEMBALI
+                </button>
+
+                <div class="logo" id="logo">
+                    <img src="logo.png" />
+                </div>
+
+                <div class="logo-main2" id="logoBukan2">
+                    <img src="bukanmainlogo.png" />
+                </div>
+
+            </div>
+
+            <div id="wContainer">
+                <div id="topBar">
+                    <h3 id="levelDiv"><span id="level">Level <span id="levelNum">1</span></span><span id="coinDiv"><span
+                                id="coin">0</span><span id="coinSign">💰</span></span></h3>
+                    <div id="wcont">
+                        <div class="quotes-wrapper" id="quotesWrapper1">
+                            <div class="texttesting1" style="margin-left: 7px;"></div>
+                            <div class="word" id='word1'></div>
+                        </div>
+                        <div class="quotes-wrapper" id="quotesWrapper2">
+                            <div class="texttesting2" style="margin-left: 7px;"></div>
+                            <div class="word" id='word2'></div>
+                            <div class="texttesting3" style="margin-left: 7px;"></div>
+                        </div>
                     </div>
-                    <div class="texttesting2" style="margin-left: 7px;"></div>
-                    <div class="word"></div>
-                    <div class="word"></div>
-                    <div class="word"></div>
-                    <div class="word"></div>
                 </div>
             </div>
-        </div>
-        <div class="wrapper">
-            <div id="lContainer">
-                <div id="l1" class="l"></div>
-                <div id="l2" class="l"></div>
-                <div id="l3" class="l"></div>
-                <div id="l4" class="l"></div>
-                <div id="l5" class="l"></div>
-                <div id="preview" style="margin-top: 20px;"><span id="previewTxt"></span></div>
-            </div>
-            <canvas id="gameContainer" style="background:transparent;"></canvas>
-        </div>
-
-
-        <div style="margin-top: 20px;text-align: center;font-size: 30px;color: red;font-weight: bold;" class="timer"></div>
-        <center>
-            <div style="margin-top: 220px;text-align: center;background-color: red;width: 15%;height: 8%;" class="pointes"></div>
-        </center>
-        
-        <div id="over">
-            <h2 id="complete"><span id="title">Main Kata</span></h2>
-            <div class="logo-main" id="logoBukan">
-                <img src="bukanmainlogo.png" />
-            </div>
-            <div id="starCnt">
-                <div id="starbg"><span id="stb1">⭐</span><span id="stb2">⭐</span><span id="stb3">⭐</span></div>
-                <div id="star"><span>⭐</span><span>⭐</span><span>⭐</span></div>
-            </div>
-            <div id="nextBtnCnt">
-                <div id="levelBtnCnt">
-                    <button id="levelBtn">Levels</button>
+            <div class="wrapper">
+                <div id="lContainer">
+                    <div id="l1" class="l"></div>
+                    <div id="l2" class="l"></div>
+                    <div id="l3" class="l"></div>
+                    <div id="l4" class="l"></div>
+                    <div id="l5" class="l"></div>
+                    <div id="l6" class="l"></div>
+                    <div id="l7" class="l"></div>
+                    <div id="l8" class="l"></div>
+                    <div id="preview" style="margin-top: 20px;"><span id="previewTxt"></span></div>
                 </div>
-                <button id="nextBtn">Next Level</button>
-                <button id="st">MULAI</button>
+                <canvas id="gameContainer" style="background:transparent;"></canvas>
             </div>
-            <div id="levelCnt">
-                <div id="levelTitle">
-                    <button>Levels</button>
+
+
+            <div style="margin-top: 20px;text-align: center;font-size: 30px;color: red;font-weight: bold;" class="timer"
+                id="timer">
+            </div>
+            <center>
+                <div class="points-wrapper" id="points-wrapper"></div>
+            </center>
+
+            <div id="over">
+                <div class="wrapper-complete">
+                    <h2 id="complete"><span id="title">ACAK <br> KATA</span></h2>
+                    <div class="logo-main" id="logoBukan">
+                        <img src="bukanmainlogo.png" />
+                    </div>
+                    <div id="nextBtnCnt">
+                        <div id="levelBtnCnt">
+                            <button id="levelBtn">Levels</button>
+                        </div>
+                        <button id="nextBtn">Next Level</button>
+                        <button id="st">MULAI</button>
+                    </div>
+                    <div id="levelCnt">
+                        <div id="levelTitle">
+                            <button>Levels</button>
+                        </div>
+                        <div id="levelBack">
+                            <button>KEMBALI</button>
+                        </div>
+                        <div id="levelList"></div>
+                    </div>
                 </div>
-                <div id="levelBack">
-                    <button>Back</button>
+
+            </div>
+
+
+            <div class="board" id="board">
+            </div>
+
+            <div id="shuffle">🔄</div>
+            <div id="hint">💡</div>
+        </div>
+
+        <div class="footer">
+            <div class="smoking-image-wrapper">
+                <img src="resiko.jpg" />
+            </div>
+            <div class="info-footer-wrapper">
+                <div class="title">PERINGATAN</div>
+                <div class="description">KARENA MEROKOK, SAYA TERKENA KANKER TENGGOKAN. LAYANAN BERHENTI MEROKOK
+                    <br>(0800-177-6565)
                 </div>
-                <div id="levelList"></div>
+            </div>
+            <div class="logo-mini">
+                <img src="18.png" />
             </div>
         </div>
 
-        <div id="shuffle">🔄</div>
-        <div id="hint">💡</div>
-    </div>
+        <audio id="gameAudio" controls>
+            <source src="gamesong.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
 
-    <div class="footer">
-        <div class="smoking-image-wrapper">
-            <img src="resiko.jpg" />
-        </div>
-        <div class="info-footer-wrapper">
-            <div class="title">PERINGATAN</div>
-            <div class="description">KARENA MEROKOK, SAYA TERKENA KANKER TENGGOKAN. LAYANAN BERHENTI MEROKOK
-                (0800-177-6565)</div>
-        </div>
-        <div class="logo-mini">
-            <img src="18.png" />
-        </div>
+        <audio id="gameLeaderboard" controls>
+            <source src="leaderboard.mp3" type="audio/mp3">
+            Your browser does not support the audio element.
+        </audio>
+
+        <button id="submit" style="display:none"></button>
+
     </div>
 </body>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
@@ -127,18 +148,158 @@
     window.onload = function () {
         "use strict";
 
+        var gameAudio = document.getElementById("gameAudio");
+        var gameLeaderboard = document.getElementById("gameLeaderboard");
+
+        function playGameAudio() {
+            gameAudio.loop = true;
+            gameAudio.load();
+            gameAudio.play();
+        }
+
+        function playGameLeaderboardAudio() {
+            gameLeaderboard.loop = true;
+            gameLeaderboard.load();
+            gameLeaderboard.play();
+        }
+
+        function stopGameAudio() {
+            gameAudio.pause();
+            gameAudio.currentTime = 0;
+        }
+
+        function stopGameLeaderboardAudio() {
+            gameLeaderboard.pause();
+            gameLeaderboard.currentTime = 0;
+        }
+
+        var highscore;
+        var rankingPositionPlayer;
+        var rankingPoint;
+        getHighScore();
+
+        document.getElementById('submit').addEventListener('click', function () {
+            gameAudio.pause();
+            gameAudio.currentTime = 0;
+
+            gameLeaderboard.loop = true;
+            gameLeaderboard.load();
+            gameLeaderboard.play();
+        });
+
+
+        function getLeaderboard() {
+            window.addEventListener('message', (event) => {
+                if (event.data.action == 'getLeaderboard') {
+                    rankingPoint = event.data.data.allranking[0].point;
+                    rankingPositionPlayer = event.data.data.ranking[0].position;
+
+                    rankingPoint = rankingPoint.replace('.', '');
+                    rankingPoint = parseInt(rankingPoint);
+                    document.getElementById('submit').click();
+
+
+                    if (rankingPoint < totalScore) {
+                        board[0].innerHTML = "<div class='leaderboard' id='leaderboard'><div class='tes' style='text-align:center;font-size:28px;font-weight:bold'>BUKAN MAIN! POIN KAMU</div><div style='text-align:center;font-size:30px;font-weight:bold;color:red'><img src='koin.png' style='width:4%'>" + totalScore + "</div> <div id='nextBtnCnt'></div> <center><div class='board-wrapper type-reverse'> <div id='board1'><div>RANKING 2</div><div>" + rankingPoint + "</div></div><div id='board2'><div>RANKING 1</div> <div>" + totalScore + "</div></div> </div><div class='endButtonWrapper'><div><button style='background: url(bgButton.png);color:white;background-position: center;margin-right:20px' id='ml'>COBA LAGI</button> </div><div><button style='background: url(bgButton.png);color:white;background-position: center;' id='end'>SELESAI</button></div></div><div class='iklan' style='text-align:center;font-size:16px;margin-top:5px;font-weight:bold'>MAU LIAT KONTEN BUKAN MAIN LAINNNYA? <span style='color:red' id='externalLink'>KLIK DI SINI!</span></div> </center></div>";
+                        board[0].style.height = "100%";
+                    } else {
+                        board[0].innerHTML = "<div class='leaderboard' id='leaderboard'><div class='tes' style='text-align:center;font-size:28px;font-weight:bold'>BUKAN MAIN! POIN KAMU</div><div style='text-align:center;font-size:30px;font-weight:bold;color:red'><img src='koin.png' style='width:4%'>" + totalScore + "</div> <div id='nextBtnCnt'></div> <center><div class='board-wrapper'> <div id='board1'><div>RANKING 1</div><div>" + rankingPoint + "</div></div><div id='board2'><div>RANKING " + rankingPositionPlayer + "</div> <div>" + totalScore + "</div></div> </div><div class='endButtonWrapper'><div><button style='background: url(bgButton.png);color:white;background-position: center;margin-right:20px' id='ml'>COBA LAGI</button></div><div><button style='background: url(bgButton.png);color:white;background-position: center;' id='end'>SELESAI</button></div></div> <div class='iklan' style='text-align:center;font-size:16px;margin-top:5px;font-weight:bold'>MAU LIAT KONTEN BUKAN MAIN LAINNNYA? <span style='color:red' id='externalLink'>KLIK DI SINI!</span></div> </center></div>";
+                        board[0].style.height = "100%";
+                    }
+
+                    document.getElementById('end').addEventListener('click', function () {
+                        location.reload();
+                    })
+
+
+                    document.getElementById('ml').addEventListener('click', function () {
+                        playGameAudio();
+                        var fiveMinutes = timerStop,
+                            display = document.querySelector('.timer');
+                        startTimer(fiveMinutes, display);
+
+                        resetTimer();
+                        totalScore = 0;
+                        levelCompleted = [];
+                        getLevel();
+                        _s('leaderboard').remove();
+                        if (randomLevel % 2 === 1) {
+
+                            for (var i = 0; i < levels.length; i++) {
+                                if (levels[i][0].length > 1) {
+                                    levels[i][0].pop();
+                                }
+                            }
+
+                            quotesWrapper1.style.opacity = "1";
+                            quotesWrapper2.style.opacity = "1";
+                            _s('lContainer').style.display = "block";
+                            startLevel(randomLevel - 1);
+                        } else {
+
+                            for (var i = 0; i < levels.length; i++) {
+                                if (levels[i][0].length > 1) {
+                                    levels[i][0].pop();
+                                }
+                            }
+
+                            quotesWrapper1.style.opacity = "1";
+                            quotesWrapper2.style.opacity = "1";
+                            _s('lContainer').style.display = "block";
+                            startLevel(randomLevel);
+                        }
+                    });
+
+
+
+                    document.getElementById('externalLink').addEventListener('click', function () {
+                        console.log('d');
+                        externalLink();
+                    });
+                    _s('gameContainer').style.opacity = "0";
+                }
+            })
+        }
+
+        function getHighScore() {
+            window.addEventListener('message', (event) => {
+                if (event.data.action == 'getScore') {
+                    highscore = event.data.data.highscore;
+                    if (highscore === undefined || highscore === null) {
+                        highscore = 0;
+                    } else {
+                        highscore = event.data.data.highscore;
+                    }
+                }
+            })
+        }
+
+        document.getElementById('buttonBack').addEventListener('click', function () {
+            backToMenu();
+        });
+
+        function backToMenu() {
+            window.parent.postMessage({ action: 'gMainMenu' });
+        }
+
+        function submitScore(score, status) {
+            window.parent.postMessage({ action: 'gStorePoint', point: score });
+            getLeaderboard();
+        }
+
+        function externalLink() {
+            window.parent.postMessage({ action: 'gOpenLink', target: "https://www.amild.id/bukan-main-20/?utm_source=SRCApps&utm_medium=referral&utm_campaign=29-06-2021+SRCAcakKata+Tactical+Brand+Engagement+Join&utm_content=PopUpLink&utm_term=Amild+BukanMain_SRCAcakKata" });
+        }
+
         function _s(x) {
             return document.getElementById(x);
         }
 
-        // var vw = window.innerWidth || 360;
-        // var vh = window.innerHeight || 560;
+        var levelNow;
 
         var vw = window.innerWidth || 360;
         var vh = window.innerHeight || 560;
 
-        // var w = (vw > 400) ? 400 : vw;
-        // var h = (vh > 700) ? 700 : vh;
 
         var w = (vw > 400) ? 400 : vw;
         var h = (vh > 700) ? 700 : vh;
@@ -146,66 +307,102 @@
         var ll = (vw - w) / 2;
         var ltp = (vh - h) / 2;
 
-        // var ll = "100%";
-        // var ltp = "100%";
-
-        _s("container").style.backgroundImage = "url(https://bdsports.000webhostapp.com/wsnd/9.jpg)";
-
         var nextBtn = _s("nextBtn");
         var completeDiv = _s("over");
         var levelDiv = _s("levelDiv");
+        var timer = _s("timer");
+        var pointsWrapper = _s("points-wrapper");
 
-        var myDomain = "https://bdsports.000webhostapp.com/";
+        var myDomain = "";
         var canPlay = false;
-        var sounds = {
-            "levelComplete": new Audio(),
-            "levelStart": new Audio(),
-            "right": new Audio(),
-            "wrong": new Audio(),
-            "select": new Audio(),
-            "shuffle": new Audio(),
-            "extraWord": new Audio()
-        }
 
-        sounds.levelComplete.src = myDomain + "wsnd/level_complete.mp3";
-        sounds.levelStart.src = myDomain + "wsnd/level_start.mp3";
-        sounds.right.src = myDomain + "wsnd/right.mp3";
-        sounds.wrong.src = myDomain + "wsnd/wrong.mp3";
-        sounds.select.src = myDomain + "wsnd/select.mp3";
-        sounds.shuffle.src = myDomain + "wsnd/shuffle.ogg";
-        sounds.extraWord.src = myDomain + "wsnd/extra_word.ogg";
+        if (!localStorage.getItem('levelCompleted')) {
+            var duration = 120;
+            var timerStop = 120;
+        } else {
+            var duration = 120;
+            var timerStop = 120;
+        }
+        var timer = duration, minutes, seconds;
+        var play;
+        var interval = null;
+
+        function resetTimer() {
+            if (!localStorage.getItem('levelCompleted')) {
+                timer = 120 * 1;
+
+            } else {
+                timer = 120 * 1;
+            }
+        }
+        var board = document.getElementsByClassName("board");
+        var title = document.getElementById("complete");
+
+
+        var timeOut = 0;
+
+        var display = document.querySelector('.timer');
 
         function startTimer(duration, display) {
-            var timer = duration, minutes, seconds;
-            setInterval(function () {
+            interval = setInterval(function () {
                 minutes = parseInt(timer / 60, 10);
                 seconds = parseInt(timer % 60, 10);
-
                 minutes = minutes < 10 ? "0" + minutes : minutes;
                 seconds = seconds < 10 ? "0" + seconds : seconds;
 
                 display.textContent = minutes + ":" + seconds;
-
                 if (--timer < 0) {
-                    timer = duration;
+                    display.textContent = "00" + ":" + "00";
+
+
+                    quotesWrapper1.style.opacity = "0";
+                    quotesWrapper2.style.opacity = "0";
+
+                    tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+                    tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+                    completeDiv.style.display = "block";
+                    nextBtnCnt.style.display = "block";
+                    _s("logoBukan").style.display = "none";
+                    _s("logoBukan2").style.display = "block";
+                    pointsWrapper.style.display = "none";
+                    _s("lContainer").style.display = "none";
+                    _s("st").style.display = "none";
+                    _s("wrapper-logo").style.display = "block";
+                    _s("buttonBack").style.display = "none";
+                    _s("wrapper-logo").style.marginTop = "2%";
+                    _s("wrapper-logo").style.width = "100%";
+                    _s("logoBukan").style.marginLeft = "85%";
+                    _s("logoBukan").style.marginTop = "2%";
+                    display.textContent = "";
+
+
+
+                    clearInterval(interval);
+                    timerStop = timer;
+
+                    _s("complete").style.display = "none";
+
+                    timer = 0;
+
+                    swal({
+                        title: "WAKTU HABIS",
+                        button: {
+                            text: "OK",
+
+                        },
+                        dangerMode: true,
+                    }).then((willDelete) => {
+                        stopGameAudio();
+                        playGameLeaderboardAudio();
+                        submitScore(totalScore, 0);
+                    });
                 }
             }, 1000);
         }
 
+
         function play(x) {
-            if (canPlay) {
-                try {
-                    if (sounds[x].paused) {
-                        sounds[x].play().catch(function (err) { });
-                    }
-                    else {
-                        sounds[x].currentTime = 0;
-                    }
-                }
-                catch (err) {
-                    //alert(err);
-                }
-            }
+
         }
 
         var starCnt = _s("starCnt");
@@ -213,77 +410,95 @@
         var nextBtnCnt = _s("nextBtnCnt");
 
         function startPlay() {
+            playGameAudio();
             swal({
                 title: "ISI 'QUOTES' NYA",
                 text: "TARIK HURUF YANG BENAR DARI KUMPULAN HURUF RANDOM YANG TERSEDIA DAN ISI AREA KOSONG UNTUK MEMBENTUK KATA YANG TEPAT SESUAI QUOTES BUKAN MAIN",
                 buttons: ["SKIP", "LANJUT"],
                 dangerMode: true,
             })
-            .then((willDelete) => {
-                if (willDelete) {
-                    swal({
-                        title: "KUMPULKAN POINNYA",
-                        text: "DAPATKAN 10 POIN UNTUK SETIAP QUOTES YANG LENGKAP DALAM 60 DETIK. APABILA SUDAH MENYELESAIKAN SEMUA QUOTES, PERMAINAN AKAN KEMBALI KE AWAL POIN MENJADI 20 DAN WAKTU 30 DETIK.",
-                        buttons: ["SKIP", "LANJUT"],
-                        dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                        if (willDelete) {
-                            swal({
-                                title: "HADIAH",
-                                text: "DAPATKAN ITEM MENARIK YANG BISA LO DAPATKAN SETIAP MINGGUNYA SELAMA PERIODE BUKAN MAIN",
-                                buttons: ["SKIP", "LANJUT"],
-                                dangerMode: true,
-                            })
+                .then((willDelete) => {
+                    if (willDelete) {
+                        swal({
+                            title: "KUMPULKAN POINNYA",
+                            text: "DAPATKAN 10 POIN UNTUK SETIAP QUOTES YANG LENGKAP DALAM 2 MENIT.",
+                            buttons: ["SKIP", "LANJUT"],
+                            dangerMode: true,
+                        })
                             .then((willDelete) => {
                                 if (willDelete) {
                                     swal({
-                                        title: "PENGUMUMAN PEMENANG",
-                                        text: "PEMENANG SETIAP MINGGUNYA ADALAH LO YANG PUNYA POIN TERBANYAK DAN KAMI HUBUNGI",
+                                        title: "REWARD",
+                                        text: "DAPATKAN ITEM MENARIK YANG BISA LO DAPATKAN SETIAP BULANNYA SELAMA PERIODE BUKAN MAIN",
                                         buttons: ["SKIP", "LANJUT"],
                                         dangerMode: true,
                                     })
-                                    .then((willDelete) => {
-                                        if (willDelete) {
-
-                                        } else {
-                                            
-                                        }
-                                    });
+                                        .then((willDelete) => {
+                                            if (willDelete) {
+                                                swal({
+                                                    title: "PENGUMUMAN PEMENANG",
+                                                    text: "PEMENANG SETIAP BULAN ADALAH LO YANG PUNYA 20 POIN TERTINGGI AKAN KAMI HUBUNGI",
+                                                    buttons: ["SKIP", "LANJUT"],
+                                                    dangerMode: true,
+                                                })
+                                                    .then((willDelete) => {
+                                                        if (willDelete) {
+                                                            getLevel();
+                                                            if (randomLevel % 2 === 1) {
+                                                                startLevel(randomLevel - 1);
+                                                            } else {
+                                                                startLevel(randomLevel);
+                                                            }
+                                                        } else {
+                                                            getLevel();
+                                                            if (randomLevel % 2 === 1) {
+                                                                startLevel(randomLevel - 1);
+                                                            } else {
+                                                                startLevel(randomLevel);
+                                                            }
+                                                        }
+                                                    });
+                                            } else {
+                                                getLevel();
+                                                if (randomLevel % 2 === 1) {
+                                                    startLevel(randomLevel - 1);
+                                                } else {
+                                                    startLevel(randomLevel);
+                                                }
+                                            }
+                                        });
                                 } else {
-                                    
+                                    getLevel();
+                                    if (randomLevel % 2 === 1) {
+                                        startLevel(randomLevel - 1);
+                                    } else {
+                                        startLevel(randomLevel);
+                                    }
                                 }
                             });
+                    } else {
+                        getLevel();
+                        if (randomLevel % 2 === 1) {
+                            startLevel(randomLevel - 1);
+                            //startLevel(2);
                         } else {
-                            
+                            startLevel(randomLevel);
+                            //startLevel(2);
                         }
-                    });
-                } else {
-                    
-                }
-            });
-            
-            _s("st").style.display = "none";
+                    }
+                });
+
+
+            _s("st").style.display = "unset";
             _s("logoBukan").style.display = "none";
-            levelBtn.style.display = "inline-block";
-            //lContainer.style.transform = "scale(1)";
-            nextBtn.style.display = "inline-block";
-            //startLevel(0);
-            levelCnt.style.display = "block";
-            starCnt.style.display = "none";
+            _s("logoBukan2").style.display = "none";
+            levelBtn.style.display = "none";
+            nextBtn.style.display = "none";
+            levelCnt.style.display = "none";
             compl.style.display = "none";
             levelBack.style.display = "none";
             nextBtnCnt.style.display = "none";
-            // levelDiv.style.transform = "translateY(0)";
             canPlay = true;
-            for (var x in sounds) {
-                try {
-                    sounds[x].play().catch(function (err) { });
-                }
-                catch (err) {
-                    //alert(err);
-                }
-            }
         }
 
         _s("st").addEventListener("click", startPlay);
@@ -299,8 +514,9 @@
         var ct = h / 2 + (h / 2 - ch) / 2;
         var cl = (w - cw) / 2;
         var c = _s("gameContainer");
-        c.height = h;
+        c.height = h + 50;
         c.width = w;
+
 
 
         var ctx = c.getContext("2d");
@@ -316,83 +532,89 @@
         lContainer.style.top = ct + "px";
         lContainer.style.left = cl + "px";
 
+
         var lt = [_s("l1"), _s("l2"), _s("l3"), _s("l4"), _s("l5")];
+
+
         var previewTxt = _s("previewTxt");
 
         var levels = [
-            [['KERE', 'KEREN'],, ['GIEN', 'VEIN', 'VINE', 'GEN', 'GIE', 'GIN', 'VEG', 'VIE']],
-            [['ICED', 'ICEDS'], ['COVE', 'ECO', 'VIE']],
-            [['ME', 'MY', 'MERRY'], ['ERR', 'RYE', 'YER']],
-            [['IT', 'HIT', 'TICK', 'THICK'], ['CHIK', 'CHIT', 'HICK', 'ITCH', 'KIT', 'TIC']],
-            [['HE', 'WE', 'LIE', 'WHILE'], ['WILE', 'HEW', 'HIE', 'LEI']],
-            [['AM', 'AS', 'ALL', 'MALL', 'SMALL'], ['MALLS', 'ALLS', 'ALMS', 'LAMS', 'SALL', 'SLAM', 'LAM']],
-            [['SEE', 'SEEN', 'SENSE'], ['ESES', 'NESS', 'SEES', 'SENE', 'SEN']],
-            [['HIM', 'HIT', 'MIGHT'], ['GIT', 'TIM']],
-            [['AT', 'TO', 'LOT', 'TOTAL'], ['ALTO', 'TALT', 'OAT', 'TAO', 'TAT', 'TOT']],
-            [['OR', 'FOR', 'FOOL', 'ROOF', 'FLOOR'], ['OF', 'LOOF', 'ROLF', 'FRO', 'LOO', 'ROO']],
-            [['AM', 'ARM', 'MAD', 'DRAMA'], ['DAMAR', 'DRAM', 'MAAR', 'AMA', 'DAM', 'MAR', 'RAD', 'RAM']],
-            [['IN', 'IT', 'NUT', 'UNIT', 'UNTIL'], ['UNLIT', 'LINT', 'LITU', 'LUNT', 'LIT', 'NIL', 'TIL', 'TIN', 'TUN']],
-            [['DIE', 'DIG', 'DUE', 'GUIDE'], ['DUG', 'GIE']],
-            [['AGE', 'ALL', 'LEG', 'LEGAL'], ['EGAL', 'GALE', 'GALL', 'LEAL', 'ALE', 'GAL', 'GEL', 'LAG']],
-            [['US', 'DUST', 'DUTY', 'STUDY'], ['DUSTY', 'STUD', 'STY', 'USD']],
-            [['ALL', 'ASH', 'HALL', 'SHALL'], ['HALLS', 'ALLS', 'LASH', 'SALL', 'HAS']],
-            [['IF', 'IT', 'FIT', 'HIT', 'FIFTH'], []],
-            [['SEE', 'KNEE', 'SEEK', 'KNEES'], ['KEENS', 'SKEEN', 'SKENE', 'KEEN', 'SEEN', 'SENE', 'SKEE', 'EEK', 'EKE', 'SEN']],
-            [['HE', 'WE', 'HER', 'HERE', 'WHERE'], ['HEWER', 'EWER', 'WEER', 'WERE', 'WHEE', 'ERE', 'EWE', 'HEW', 'REE', 'WEE']],
-            [['LET', 'SET', 'YES', 'YET', 'STYLE'], ['LEST', 'LETS', 'STEY', 'STYE', 'TYES', 'LES', 'LEY', 'LYE', 'SLY', 'STY']],
-            [['OK', 'LOCK', 'CLOCK'], ['COL']],
-            [['HE', 'SO', 'SHE', 'SHOE', 'SHOES'], ['HOSES', 'HOES', 'HOSE', 'SHES', 'HOE']],
-            [['TIE', 'QUIT', 'QUIET', 'QUITE'], []],
-            [['NOW', 'OWN', 'KNOW', 'KNOWN'], ['WONK', 'NON', 'WOK', 'WON']],
-            [['ALL', 'CALL', 'COAL', 'LOCAL'], ['COLA', 'OLLA', 'COL']],
-            [['ACE', 'SEA', 'CASE', 'CASES'], ['ACES', 'SACS', 'SEAS', 'ASS', 'SAC', 'SEC']],
-            [['ME', 'MOVE', 'MOVIE'], ['VIE']],
-            [['EYE', 'EVER', 'VERY', 'EVERY'], ['VEERY', 'VEER', 'ERE', 'EVE', 'REE', 'REV', 'RYE', 'YER']],
-            [['TO', 'OUT', 'TOE', 'QUOTE'], []],
-            [['IN', 'BIG', 'RING', 'BRING'], ['BRIG', 'GIRN', 'GRIN', 'BIN', 'GIN', 'NIB', 'RIB', 'RIG']],
-            [['CAP', 'PACE', 'PEACE'], ['CAPE', 'CEPE', 'ACE', 'APE', 'PEA', 'PEE']],
-            [['IT', 'HIT', 'DIRT', 'THIRD'], ['THIR', 'DIT', 'HID', 'RID', 'TRI']],
-            [['SEE', 'ELSE', 'PEEL', 'SLEEP'], ['PEELS', 'EELS', 'PEES', 'SEEP', 'EEL', 'LES', 'PEE']],
-            [['AT', 'IT', 'VIA', 'TAIL', 'VITAL'], ['TALI', 'VAIL', 'VIAL', 'VITA', 'AIL', 'AIT', 'LAV', 'LIT', 'TIL', 'VAT']],
-            [['COW', 'ROW', 'WORD', 'CROWD'], ['CORD', 'CROW', 'COD', 'DOW', 'ORC', 'ROC', 'ROD']],
-            [['DOVE', 'MODE', 'MOVE', 'MOVED'], ['DEMO', 'DOME', 'DEV', 'DOE', 'MED', 'ODE']],
-            [['AM', 'OR', 'ARM', 'ORAL', 'MORAL'], ['MOLAR', 'LOAM', 'MARL', 'MORA', 'ROAM', 'LAM', 'MAR', 'MOL', 'OAR', 'ORA', 'RAM']],
-            [['DIE', 'RED', 'DIVE', 'RIDE', 'DRIVE'], ['DIVER', 'RIVED', 'DIRE', 'IRED', 'RIVE', 'VIED', 'DEV', 'IRE', 'REI', 'REV', 'RID', 'VIE']],
-            [['AIR', 'CAR', 'HAIR', 'RICH', 'CHAIR'], ['ARCH', 'CHAR', 'RICA', 'ARC']],
-            [['RUN', 'SUN', 'USE', 'SURE', 'NURSE'], ['SUE', 'RUNES', 'ERNS', 'RUES', 'RUNE', 'RUNS', 'RUSE', 'URNS', 'USER', 'RES', 'RUE', 'SEN', 'SER', 'SUR', 'URN']],
-            [['COT', 'COST', 'COSTS'], ['SCOTS', 'COTS', 'SCOT', 'SOTS', 'TOSS']],
-            [['EVE', 'EVER', 'VEER', 'SERVE'], ['SEVER', 'VEERS', 'VERSE', 'EVES', 'REVS', 'SEER', 'SERE', 'ERE', 'REE', 'RES', 'REV', 'SEE', 'SER']],
-            [['SEE', 'SEW', 'SEEK', 'WEEK', 'WEEKS'], ['EWES', 'SKEE', 'SKEW', 'EEK', 'EKE', 'EWE', 'WEE']],
-            [['BOT', 'BUD', 'BUT', 'OUT', 'DOUBT'], ['BOUT', 'DOT', 'DUB', 'DUO', 'OUD', 'TOD', 'TUB', 'UDO']],
-            [['IN', 'GIN', 'GRIN', 'RING', 'REIGN'], ['NIGER', 'GIEN', 'GIRE', 'GIRN', 'REIN', 'GEN', 'GIE', 'IRE', 'REG', 'REI', 'RIG']],
-            [['IT', 'NUT', 'TINY', 'UNIT', 'UNITY'], ['IN', 'TIN', 'TUN']],
-            [['IN', 'IS', 'SIGN', 'SING', 'SIGNS'], ['SINGS', 'GINS', 'SINS', 'GIN', 'INS', 'SIN']],
-            [['OLD', 'FOLD', 'FOOD', 'FOOL', 'FLOOD'], ['LOOF', 'LOO']],
-            [['FOE', 'CORE', 'FORE', 'FORCE'], ['FOR', 'CERO', 'CORF', 'FROE', 'ECO', 'FER', 'FRO', 'ORC', 'ORE', 'REC', 'REF', 'ROC', 'ROE']],
-            [['FAME', 'LEAF', 'MALE', 'MEAL', 'FLAME'], ['FLEAM', 'ALEF', 'ALME', 'FEAL', 'FLAM', 'FLEA', 'LAME', 'ALE', 'ELM', 'ELF', 'FEM', 'LAM', 'LEF', 'MAE']],
-            [['CAN', 'INCH', 'CHAIN', 'CHINA'], ['CAIN', 'CHAN', 'CHIN', 'INCA', 'ANI', 'HIN', 'NAH']],
-            [['SET', 'SHE', 'THE', 'CHEST'], ['ETCH', 'ETHS', 'HEST', 'HETS', 'SECT', 'TECH', 'ETC', 'HET', 'SEC']],
+            [['PINTER'], ['PNTER']], //0
+            [['KOMEN'], ['KMEN']], //1
+
+            [['BILANG'], ['BLNG']], //2
+            [['BENER'], ['BNER']], //3
+
+            [['ROBOT'], ['RBOT']], //4
+            [['ANTRI'], ['NTRI']], //5
+
+            [['SALAH'], ['SLAH']], //6
+            [['GALAK'], ['GLAK']], //7
+
+            [['MAJU'], ['MJU']], //8
+            [['ADUDOMBA'], ['DMBA']], //9
+
+            [['MACET'], ['MCET']], //10
+            [['TELAT'], ['TLAT']], //11
+
+            [['DATANG'], ['DTNG']], //12
+            [['PULANG'], ['PLNG']], //13
+
+            [['IYAIN'], ['IYA']], //14
+            [['KELAR'], ['KLAR']], //15
 
 
+            [['NYATA'], ['NYTA']], //16
+            [['MAYA'], ['MYA']], //17
+
+            [['RELATIF'], ['RLATIF']], //18
+            [['ABSOLUT'], ['ABSLUT']], //19
+
+            [['SABAR'], ['SBAR']], //20
+            [['TERBANG'], ['TRBNG']], //21
+
+            [['HIDUP'], ['HDUP']], //22
+            [['KONTEN'], ['KNTEN']], //23
+
+            [['PANTENG'], ['PNTENG']], //24
+            [['KELAR'], ['KLAR']], //25
+
+            [['MENDING'], ['MNDING']], //26
+            [['DARIPADA'], ['DRIPDA']], //27
+
+            [['LUPA'], ['LPA']], //28
+            [['POSISI'], ['PSISI']], //29
+
+            [['PERGI'], ['PRGI']], //30
+            [['INSPIRA'], ['INSPIRA']], //31
+
+            // [['HOAX'], ['HOAX']], //32
+            // [['KLARIFI'], ['KLARFI']], //33
         ]
+
+        var countLevels = [];
+
+        for (var i = 0; i < levels.length; i++) {
+            countLevels.push(i);
+        }
+
         //styling line tarik-tarik
         //koordinat
+
         var points = [[Math.round(ll + w / 2), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 4), Math.round(ltp + ct + ch * 87.5 / 100)], [Math.round(ll + w - (cl + cw / 4)), Math.round(ltp + ct + ch * 87.5 / 100)]];
-        console.log(points);
+        // var points = [[Math.round(ll + w / 2), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 77 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 77 / 100)], [Math.round(ll + w / 2), Math.round(ltp + ct + ch * 100 / 100)]];
+
         var linePoints = [];
         var started = true;
 
-        ctx.lineWidth = 2;
+        ctx.lineWidth = 5;
         ctx.strokeStyle = "black";
         ctx.lineCap = "round";
         ctx.lineJoin = "round";
 
         function drawLine(x, y) {
-            // console.log('x :', x);
-            // console.log('y :', y);
-            // console.log(linePoints);
             if (linePoints[0] >= 0) {
-                ctx.clearRect(0, 0, w, h);
+                ctx.clearRect(0, 0, w, h + 50);
                 ctx.beginPath();
                 ctx.moveTo(points[linePoints[0]][0] - ll, points[linePoints[0]][1] - ltp);
                 for (var n = 1; n < linePoints.length; n++) {
@@ -404,51 +626,163 @@
             }
         }
 
+        var score = 0;
+        var totalScore = 0;
+        var tempTotalScore = 0;
         var temp1 = [];
         var temp2 = [];
         function clearLine() {
             var wordPos = levels[currentLevel][0].indexOf(currentWord);
             if (linePoints[0] >= 0) {
-                if (wordPos > -1) {
-                    ctx.strokeStyle = "lime";
-                    previewTxt.style.background = "lime";
+                if (wordPos === 0) {
+                    ctx.strokeStyle = "#ea272a";
+                    previewTxt.style.background = "#ea272a";
                     previewTxt.style.color = "#000";
 
                     var txt = "";
                     var wordArr = currentWord.split("");
 
                     for (var n = 0; n < currentWord.length; n++) {
-                        txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                        //buat adu domba
+                        if (currentWord.length == 8 && currentLevel == 9) {
+                            //TODO
+
+                            if (n == 3) {
+                                txt += "<div class='wl type-space'></div>";
+                                // txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            } else {
+                                // txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } if (currentLevel === 4 && currentWord.length === 5) {
+                            if (n == 0) {
+                                txt += "<div class='wld'>N</div>";
+                                txt += "<div class='wld'>Y</div>";
+                                txt += "<div class='wld'>E</div>";
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else if (currentLevel === 24 && currentWord.length === 7) {
+                            if (n === 6) {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                                txt += "<div class='wld'>I</div>";
+                                txt += "<div class='wld'>N</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else if (currentLevel == 2 && currentWord.length === 6) {
+                            if (n === 5) {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                                txt += "<div class='wld'>N</div>";
+                                txt += "<div class='wld'>Y</div>";
+                                txt += "<div class='wld'>A</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else if (currentLevel == 3 && currentWord.length === 5) {
+                            if (n === 4) {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                                txt += "<div class='wld'>A</div>";
+                                txt += "<div class='wld'>N</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else if (currentLevel == 31) {
+                            // console.log(wordArr[n]);
+                            if (n === 6) {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                                txt += "<div class='wld'>S</div>";
+                                txt += "<div class='wld'>I</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else if (currentLevel == 33) {
+                            // console.log(currentLevel);
+                            if (n === 6) {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                                txt += "<div class='wld'>K</div>";
+                                txt += "<div class='wld'>A</div>";
+                                txt += "<div class='wld'>S</div>";
+                                txt += "<div class='wld'>I</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else {
+                            txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                        }
+                        // txt += "<div class='wld'>" + wordArr[n] + "</div>";
                     }
-                    wcnt[wordPos].innerHTML = txt;
+                    if (currentLevel % 2 === 1) {
+                        wcnt[wordPos + 1].innerHTML = txt;
+                        // if (!localStorage.getItem('levelCompleted')) {
+                        //     score += 10;
+
+                        // } else {
+                        //     score += 20;
+                        // }
+                        score += 10;
+                        tempTotalScore += score;
+                        poin1[0].innerHTML = "<img src='koin.png' style='width:27%;margin-top:-5px;'> <font class='nilai' size='5px' color='white'>" + totalScore + "</font>";
+                        score = 0;
+                    } else {
+                        wcnt[wordPos].innerHTML = txt;
+                    }
 
                     if (temp1.indexOf(currentWord) < 0) {
                         temp1.push(currentWord);
                         updateCoin(10);
                         //play("right");
-                        if (temp1.length >= levels[currentLevel][0].length) {
-                            temp1 = [];
-                            temp2 = [];
-                            setTimeout(function () {
-                                levelComplete();
-                                //    startLevel(currentLevel+1);
-                            }, 2000)
+                        if (levels[currentLevel][0].length > 1) {
+                            if (temp1.length === levels[currentLevel][0].length - 1) {
+                                temp1 = [];
+                                temp2 = [];
+                                setTimeout(function () {
+                                    levelComplete(currentLevel);
+                                    //    startLevel(currentLevel+1);
+                                }, 2000)
 
+                                setTimeout(function () {
+                                    var wls = document.getElementsByClassName("wld");
+                                    for (var n = 0; n < wls.length; n++) {
+                                        // wls[n].style.transform = "translateY(" + Math.floor(100 + Math.random() * 200) + "px) rotate(" + Math.floor(Math.random() * 90 - 45) + "deg)";
+                                        // wls[n].style.opacity = 0;
+                                        // lContainer.style.transform = "scale(0) rotate(0)";
+                                        lContainer.style.opacity = "0";
+                                        levelDiv.style.transform = "translateY(-100px)";
+                                        shuffleBtn.style.transform = "translateX(-100px)";
+                                        hintBtn.style.transform = "translateX(100px)";
+                                    }
+                                }, 1000);
+                            }
                             setTimeout(function () {
-                                var wls = document.getElementsByClassName("wld");
-                                for (var n = 0; n < wls.length; n++) {
-                                    wls[n].style.transform = "translateY(" + Math.floor(100 + Math.random() * 200) + "px) rotate(" + Math.floor(Math.random() * 90 - 45) + "deg)";
-                                    wls[n].style.opacity = 0;
-                                    lContainer.style.transform = "scale(0) rotate(0)";
-                                    levelDiv.style.transform = "translateY(-100px)";
-                                    shuffleBtn.style.transform = "translateX(-100px)";
-                                    hintBtn.style.transform = "translateX(100px)";
-                                }
-                            }, 1000);
+                                play("right");
+                            }, 100);
+                        } else {
+                            if (temp1.length === levels[currentLevel][0].length) {
+                                temp1 = [];
+                                temp2 = [];
+                                setTimeout(function () {
+                                    levelComplete(currentLevel);
+                                    //    startLevel(currentLevel+1);
+                                }, 2000)
+
+                                setTimeout(function () {
+                                    var wls = document.getElementsByClassName("wld");
+                                    for (var n = 0; n < wls.length; n++) {
+                                        // wls[n].style.transform = "translateY(" + Math.floor(100 + Math.random() * 200) + "px) rotate(" + Math.floor(Math.random() * 90 - 45) + "deg)";
+                                        // wls[n].style.opacity = 0;
+                                        // lContainer.style.transform = "scale(0) rotate(0)";
+                                        lContainer.style.opacity = "0";
+                                        levelDiv.style.transform = "translateY(-100px)";
+                                        shuffleBtn.style.transform = "translateX(-100px)";
+                                        hintBtn.style.transform = "translateX(100px)";
+                                    }
+                                }, 1000);
+                            }
+                            setTimeout(function () {
+                                play("right");
+                            }, 100);
                         }
-                        setTimeout(function () {
-                            play("right");
-                        }, 100);
                     }
                 }
                 else if (levels[currentLevel][1].indexOf(currentWord) > -1) {
@@ -469,17 +803,44 @@
                     }
                 }
                 else {
-                    ctx.strokeStyle = "red";
-                    previewTxt.style.background = "red";
+                    ctx.strokeStyle = "black";
+                    previewTxt.style.background = "black";
                     previewTxt.style.color = "#fff";
+
+                    var l1 = _s("l1");
+                    var l2 = _s("l2");
+                    var l3 = _s("l3");
+                    var l4 = _s("l4");
+                    var l5 = _s("l5");
+                    var l6 = _s("l6");
+                    var l7 = _s("l7");
+                    var l8 = _s("l8");
+
+                    l1.classList.add('shake');
+                    l2.classList.add('shake');
+                    l3.classList.add('shake');
+                    l4.classList.add('shake');
+                    l5.classList.add('shake');
+                    l6.classList.add('shake');
+                    l7.classList.add('shake');
+                    l8.classList.add('shake');
                     setTimeout(function () {
+
+                        l1.classList.remove('shake');
+                        l2.classList.remove('shake');
+                        l3.classList.remove('shake');
+                        l4.classList.remove('shake');
+                        l5.classList.remove('shake');
+                        l6.classList.remove('shake');
+                        l7.classList.remove('shake');
+                        l8.classList.remove('shake');
                         wrong++;
                         play("wrong");
                     }, 100);
                 }
                 drawLine(points[linePoints[linePoints.length - 1]][0], points[linePoints[linePoints.length - 1]][1]);
                 setTimeout(function () {
-                    ctx.clearRect(0, 0, w, h);
+                    ctx.clearRect(0, 0, w, h + 50);
                     ctx.strokeStyle = "black";
                     previewTxt.textContent = "";
                     previewTxt.style.background = "rgba(240,240,240,0.8)";
@@ -489,16 +850,65 @@
             }
         }
 
+
         c.addEventListener("touchstart", function (e) {
             e.preventDefault();
             var touchObject, tx, ty;
             if (started) {
                 touchObject = e.changedTouches[0];
                 var canvas = _s("gameContainer");
+                var divide;
+                if (vw < 600) {
+                    divide = 1.5;
+                } else if (vw >= 600 && vw < 700) {
+                    divide = 1.7;
+                } else if (vw > 700) {
+                    divide = 1.8;
+                }
+                var left = canvas.style.left;
+                var getWidthCanvas = left.replace("%", "");
+                var widthCanvas = getWidthCanvas * vw;
 
-                tx = parseInt(touchObject.clientX) - ((vw-vh )/ 2);
-                ty = parseInt(touchObject.clientY) + 108;
-                for (var n = 0; n < 5; n++) {
+                tx = parseInt(touchObject.clientX) - (widthCanvas / divide / 100);
+                var y_ty = 80;
+                // if(vh >= 800 && vh < 850){
+                //     y_ty = 120 //ip x,pixel2xl
+                // } else if(vh >= 700 && vh < 750){
+                //     y_ty = 100; // pixel 2, ip6+
+                // } else if(vh >= 750 && vh < 800){
+                //     y_ty = 110; //
+                // } else if(vh >= 600 && vh < 650){
+                //     y_ty = 80 //motog4
+                // } else if(vh >= 650 && vh < 700){
+                //     y_ty = 80; //ip6
+                // } 
+                if (vh == 780) {
+                    y_ty = 110;
+                } else if (vh > 690) {
+                    y_ty = 80 + (vh - 690) * 0.33;
+                } else {
+                    y_ty = 80;
+                }
+                ty = parseInt(touchObject.clientY) + y_ty;
+
+                if (levelNow === 5) {
+                    var max = 6;
+                    points = [[Math.round(ll + w / 2), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 77 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 77 / 100)], [Math.round(ll + w / 2), Math.round(ltp + ct + ch * 100 / 100)]];
+                } else if (levelNow === 6) {
+                    var max = 7;
+                    points = [[Math.round(ll + w / 2), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w / 2.4), Math.round(ltp + ct + ch * 105 / 100)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + ch * 105 / 100)]];
+                } else if (levelNow === 7) {
+                    var max = 8;
+                    points = [[Math.round(ll + w / 2.4), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w / 2.4), Math.round(ltp + ct + ch * 105 / 100)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + cw / 8)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + ch * 105 / 100)]];
+                } else if (levelNow === 8) {
+                    var max = 8;
+                    points = [[Math.round(ll + w / 2.4), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w / 2.4), Math.round(ltp + ct + ch * 105 / 100)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + cw / 8)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + ch * 105 / 100)]];
+                } else {
+                    var max = 5;
+                    points = [[Math.round(ll + w / 2), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 4), Math.round(ltp + ct + ch * 87.5 / 100)], [Math.round(ll + w - (cl + cw / 4)), Math.round(ltp + ct + ch * 87.5 / 100)]];
+                }
+
+                for (var n = 0; n < max; n++) {
                     if (Math.sqrt(Math.pow(points[n][0] - tx, 2) + Math.pow(points[n][1] - ty, 2)) < 30) {
                         linePoints.push(n);
                         //    play("select");
@@ -518,24 +928,72 @@
             if (!started) {
                 var canvas = _s("gameContainer");
                 touchObject = e.changedTouches[0];
-                console.log(e.changedTouches[0]);
-                tx = parseInt(touchObject.clientX) - ((vw-vh)/ 2);
-                ty = parseInt(touchObject.clientY) + 108;
-                for (var n = 0; n < 5; n++) {
+                var divide;
+                if (vw < 600) {
+                    divide = 1.5;
+                } else if (vw >= 600 && vw < 700) {
+                    divide = 1.7;
+                } else if (vw > 700) {
+                    divide = 1.8;
+                }
+                var left = canvas.style.left;
+                var getWidthCanvas = left.replace("%", "");
+                var widthCanvas = getWidthCanvas * vw;
+
+                tx = parseInt(touchObject.clientX) - (widthCanvas / divide / 100);
+                var y_ty = 80;
+                // if(vh >= 800 && vh < 850){
+                //     y_ty = 120 //ip x,pixel2xl
+                // } else if(vh >= 700 && vh < 750){
+                //     y_ty = 100; // pixel 2, ip6+
+                // } else if(vh >= 750 && vh < 800){
+                //     y_ty = 110; //
+                // } else if(vh >= 600 && vh < 650){
+                //     y_ty = 80 //motog4
+                // } else if(vh >= 650 && vh < 700){
+                //     y_ty = 80; //ip6
+                // } 
+                if (vh == 780) {
+                    y_ty = 110;
+                } else if (vh > 690) {
+                    y_ty = 80 + (vh - 690) * 0.33;
+                } else {
+                    y_ty = 80;
+                }
+                ty = parseInt(touchObject.clientY) + y_ty;
+
+                if (levelNow === 5) {
+                    var max = 6;
+                    points = [[Math.round(ll + w / 2), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 77 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 77 / 100)], [Math.round(ll + w / 2), Math.round(ltp + ct + ch * 100 / 100)]];
+                } else if (levelNow === 6) {
+                    var max = 7;
+                    points = [[Math.round(ll + w / 2), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w / 2.4), Math.round(ltp + ct + ch * 105 / 100)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + ch * 105 / 100)]];
+                } else if (levelNow === 7) {
+                    var max = 8;
+                    points = [[Math.round(ll + w / 2.4), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w / 2.4), Math.round(ltp + ct + ch * 105 / 100)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + cw / 8)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + ch * 105 / 100)]];
+                } else if (levelNow === 8) {
+                    var max = 8;
+                    points = [[Math.round(ll + w / 2.4), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w - (cl + cw * 18 / 200)), Math.round(ltp + ct + ch * 74 / 100)], [Math.round(ll + w / 2.4), Math.round(ltp + ct + ch * 105 / 100)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + cw / 8)], [Math.round(ll + w / 1.65), Math.round(ltp + ct + ch * 105 / 100)]];
+                } else {
+                    var max = 5;
+                    points = [[Math.round(ll + w / 2), Math.round(ltp + ct + cw / 8)], [Math.round(ll + cl + cw / 8), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + w - (cl + cw * 25 / 200)), Math.round(ltp + ct + ch * 41.5 / 100)], [Math.round(ll + cl + cw / 4), Math.round(ltp + ct + ch * 87.5 / 100)], [Math.round(ll + w - (cl + cw / 4)), Math.round(ltp + ct + ch * 87.5 / 100)]];
+                }
+
+                for (var n = 0; n < max; n++) {
                     if (Math.sqrt(Math.pow(points[n][0] - tx, 2) + Math.pow(points[n][1] - ty, 2)) < 30) {
                         if (linePoints.indexOf(n) === -1) {
                             linePoints.push(n);
-                            console.log(linePoints);
                             //play("select");
                             previewTxt.textContent += lt[n].textContent;
                             play("select");
                         }
                     }
                 }
-                // console.log(tx, ty);
                 drawLine(tx, ty);
             }
         })
+
+
 
         c.addEventListener("touchend", function () {
             currentWord = "";
@@ -548,7 +1006,6 @@
             started = true;
         })
 
-        //Mouse events...
         var msdn = false;
         c.addEventListener("mousedown", function (e) {
 
@@ -606,10 +1063,12 @@
             msdn = false;
         })
 
+        function generateRandomLetter() {
+            const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
+            return alphabet[Math.floor(Math.random() * alphabet.length)]
+        }
 
-
-        //transitions
         function trn1(x, t) {
             x.style.transform = t;
         }
@@ -621,48 +1080,411 @@
             }, 100)
         }
 
-        //Level
+
+        var quotesWrapper = document.getElementsByClassName("quotes-wrapper");
+
+        var quotesWrapper1 = _s("quotesWrapper1");
+        var quotesWrapper2 = _s("quotesWrapper2");
 
         var currentLevel = 0;
         var currentWord = "";
         var wcnt = document.getElementsByClassName("word");
+        var wcnt1 = document.getElementById("word1");
+        var wcnt2 = document.getElementById("word2");
         var tes1 = document.getElementsByClassName("texttesting1");
         var tes2 = document.getElementsByClassName("texttesting2");
+        var tes3 = document.getElementsByClassName("texttesting3");
         var timer1 = document.getElementsByClassName("timer");
-        var poin1 = document.getElementsByClassName("pointes");
+        var poin1 = document.getElementsByClassName("points-wrapper");
+        var i = 1;
 
-        function startLevel(ln) { 
+        function startLevel(ln) {
+            stopGameLeaderboardAudio();
+            _s('board').style.height = "unset";
+            _s('gameContainer').style.opacity = "1";
+            _s("points-wrapper").style.display = "flex";
+            _s("wrapper-logo").style.display = "none";
+            var countWord = String(levels[ln][0]);
+            countWord = countWord.replace('"', '');
+
+            if (timeOut === 1) {
+                timeOut = 0;
+                var timerStyle = _s("timer");
+                var canvasStyle = _s("lContainer");
+                timerStyle.style.display = "block";
+                canvasStyle.style.display = "block";
+                quotesWrapper1.style.opacity = "1";
+                quotesWrapper2.style.opacity = "1";
+
+                if (ln % 2 === 1) {
+                    // resetTimer();
+                }
+
+                if (!localStorage.getItem('levelCompleted')) {
+                    timer1[0].innerHTML = "02:00"
+                    var fiveMinutes = 60 * 1,
+                        display = document.querySelector('.timer');
+                } else {
+                    timer1[0].innerHTML = "02:00";
+                    var fiveMinutes = 30 * 1,
+                        display = document.querySelector('.timer');
+                }
+                startTimer(fiveMinutes, display);
+            } else {
+                if (ln % 2 !== 1) {
+                    // resetTimer();
+                }
+            }
+
+            if (levels[ln][0].length === 1) {
+                if (countWord.length >= 8) {
+                } else {
+                    var wordPengacau = levels[ln][0] + generateRandomLetter();
+                    levels[ln][0].push(wordPengacau);
+                }
+            } else {
+                levels[ln][0].pop();
+                var wordPengacau = levels[ln][0] + generateRandomLetter();
+                levels[ln][0].push(wordPengacau);
+            }
+
+            levelNow = countWord.length;
+            if (levelNow === 8) {
+                lt = [_s("l1"), _s("l2"), _s("l3"), _s("l4"), _s("l5"), _s("l6"), _s("l7"), _s("l8")];
+            } else if (levelNow === 7) {
+                lt = [_s("l1"), _s("l2"), _s("l3"), _s("l4"), _s("l5"), _s("l6"), _s("l7"), _s("l8")];
+            } else if (levelNow === 6) {
+                lt = [_s("l1"), _s("l2"), _s("l3"), _s("l4"), _s("l5"), _s("l6"), _s("l8")];
+            } else if (levelNow === 5) {
+                lt = [_s("l1"), _s("l2"), _s("l3"), _s("l4"), _s("l5"), _s("l6")];
+            } else {
+                lt = [_s("l1"), _s("l2"), _s("l3"), _s("l4"), _s("l5")];
+            }
+
+
             var canv = _s("gameContainer");
             var l1_left = _s("l1");
             var l2_left = _s("l2");
             var l3_left = _s("l3");
             var l4_left = _s("l4");
             var l5_left = _s("l5");
-            ///alert(vw);
+            var l6_left = _s("l6");
+            var l7_left = _s("l7");
+            var l8_left = _s("l8");
 
-            var canv_left = (vw / 14);
-            canv.style.left = "" + canv_left + "" + "%";1
-            
+            var canv_left = 1;
+            if (vw > 400) {
+                canv_left = 3;
+            }
+            canv.style.left = "" + canv_left + "" + "%";
+            var canv_top = 4;
+            if (vh == 780) {
+                canv_top = -9;
+                l1_left.style.top = (-24 - 34) + "%";
+                l2_left.style.top = (4 - 34) + "%";
+                l3_left.style.top = (4 - 34) + "%";
+                if (levelNow === 5) {
+                    l4_left.style.top = (40 - 34) + "%";
+                    l5_left.style.top = (40 - 34) + "%";
+                    l6_left.style.top = (60 - 34) + "%";
+                } else if (levelNow === 6 || levelNow === 7 || levelNow === 8) {
+                    l4_left.style.top = (33 - 34) + "%";
+                    l5_left.style.top = (33 - 34) + "%";
+                    l6_left.style.top = (66 - 34) + "%";
+                } else {
+                    l4_left.style.top = (48 - 34) + "%";
+                    l5_left.style.top = (48 - 34) + "%";
+                    l6_left.style.top = (60 - 34) + "%";
+                }
+                l7_left.style.top = (-24 - 34) + "%";
+                l8_left.style.top = (66 - 34) + "%";
 
-            var min = ((vw-600)/4);
-            alert(106.5+min);
-            l1_left.style.left = "" + (106.5+min) + "%";
-            l2_left.style.left = "" + (144+min) + "%";
-            l3_left.style.right = "" + (6-min) + "%";
-            l4_left.style.left = "" + (80.5+min) + "%";
-            l5_left.style.right = "" + (-55.5-min) + "%";
+            } else if (vh > 690) {
+                //alert(vh);
+                var minus_top = (vh - 690) * 0.37;
+                var minus_canv_top = (vh - 690) * 0.1;
+                canv_top = (vh - 780) / 8.6 - minus_canv_top;
+                l1_left.style.top = (-24 - minus_top) + "%";
+                l2_left.style.top = (4 - minus_top) + "%";
+                l3_left.style.top = (4 - minus_top) + "%";
+                if (levelNow === 5) {
+                    l4_left.style.top = (40 - minus_top) + "%";
+                    l5_left.style.top = (40 - minus_top) + "%";
+                    l6_left.style.top = (60 - minus_top) + "%";
+                } else if (levelNow === 6 || levelNow === 7 || levelNow === 8) {
+                    l4_left.style.top = (33 - minus_top) + "%";
+                    l5_left.style.top = (33 - minus_top) + "%";
+                    l6_left.style.top = (66 - minus_top) + "%";
+                } else {
+                    l4_left.style.top = (48 - minus_top) + "%";
+                    l5_left.style.top = (48 - minus_top) + "%";
+                    l6_left.style.top = (60 - minus_top) + "%";
+                }
+                l7_left.style.top = (-24 - minus_top) + "%";
+                l8_left.style.top = (66 - minus_top) + "%";
+            } else {
+                var bagi = (vh - 690) / 10;
+                canv_top = ((vh - 780) / 8.6) - (bagi * 0.8);
+                l1_left.style.top = (-24) + "%";
+                l2_left.style.top = (4) + "%";
+                l3_left.style.top = (4) + "%";
+                if (levelNow === 5) {
+                    l4_left.style.top = (40) + "%";
+                    l5_left.style.top = (40) + "%";
+                    l6_left.style.top = (60) + "%";
+                } else if (levelNow === 6 || levelNow === 7 || levelNow === 8) {
+                    l4_left.style.top = (33) + "%";
+                    l5_left.style.top = (33) + "%";
+                    l6_left.style.top = (66) + "%";
+                } else {
+                    l4_left.style.top = (48) + "%";
+                    l5_left.style.top = (48) + "%";
+                    l6_left.style.top = (60) + "%";
+                }
+                l7_left.style.top = (-24) + "%";
+                l8_left.style.top = (66) + "%";
+            }
 
-            tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>BELUM</div>"; 
-            tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>KALO BELUM</div>";
- 
-            timer1[0].innerHTML= "01:00";
-            poin1[0].innerHTML= "<img src='koin.png' style='width:27%;margin-top:-5px;'> <font class='nilai' size='5px' color='white'>10</font>";
-            //timer
-            var fiveMinutes = 60 * 1,
-            display = document.querySelector('.timer');
-            startTimer(fiveMinutes, display);
-            //
-            
+            canv.style.top = canv_top + "%";
+
+            l1_left.style.left = "" + (42.5) + "%";
+            l2_left.style.left = "" + (42.5 - 40) + "%";
+            l3_left.style.left = "" + (42.5 + 40) + "%";
+            if (levelNow === 5) {
+                l1_left.style.left = "" + (42.5) + "%";
+                l2_left.style.left = "" + (42.5 - 40) + "%";
+                l3_left.style.left = "" + (42.5 + 40) + "%";
+                l4_left.style.left = "" + (42.5 - 40) + "%";
+                l5_left.style.left = "" + (42.5 + 40) + "%";
+                l6_left.style.left = "" + (42.5) + "%";
+
+
+                l4_left.classList.add('type-six');
+                l5_left.classList.add('type-six');
+                l6_left.classList.remove('hide');
+
+
+                l4_left.classList.remove('type-eight');
+                l5_left.classList.remove('type-eight');
+                l6_left.classList.remove('type-eight');
+                l7_left.classList.add('hide');
+                l8_left.classList.add('hide');
+
+            } else if (levelNow === 6) {
+                l1_left.style.left = "" + (42.5) + "%";
+                l2_left.style.left = "" + (42.5 - 40) + "%";
+                l3_left.style.left = "" + (42.5 + 40) + "%";
+                l4_left.style.left = "" + (42.5 - 40) + "%";
+                l5_left.style.left = "" + (42.5 + 40) + "%";
+                l6_left.style.left = "" + (42.5 - 15) + "%";
+                l8_left.style.left = "" + (42.5 + 15) + "%";
+
+                l4_left.classList.remove('type-six');
+                l5_left.classList.remove('type-six');
+
+                l8_left.classList.remove('hide');
+                l6_left.classList.remove('hide');
+                l7_left.classList.add('hide');
+                l4_left.classList.add('type-eight');
+                l5_left.classList.add('type-eight');
+                l6_left.classList.add('type-eight');
+
+            } else if (levelNow === 7) {
+                l1_left.style.left = "" + (42.5 - 15) + "%";
+                l2_left.style.left = "" + (42.5 - 40) + "%";
+                l3_left.style.left = "" + (42.5 + 40) + "%";
+                l4_left.style.left = "" + (42.5 - 40) + "%";
+                l5_left.style.left = "" + (42.5 + 40) + "%";
+                l6_left.style.left = "" + (42.5 - 15) + "%";
+                l7_left.style.left = "" + (42.5 + 15) + "%";
+                l8_left.style.left = "" + (42.5 + 15) + "%";
+
+                l4_left.classList.remove('type-six');
+                l5_left.classList.remove('type-six');
+
+                l6_left.classList.remove('hide');
+                l7_left.classList.remove('hide');
+                l8_left.classList.remove('hide');
+                l4_left.classList.add('type-eight');
+                l5_left.classList.add('type-eight');
+                l6_left.classList.add('type-eight');
+            } else if (levelNow === 8) {
+                l1_left.style.left = "" + (42.5 - 15) + "%";
+                l2_left.style.left = "" + (42.5 - 40) + "%";
+                l3_left.style.left = "" + (42.5 + 40) + "%";
+                l4_left.style.left = "" + (42.5 - 40) + "%";
+                l5_left.style.left = "" + (42.5 + 40) + "%";
+                l6_left.style.left = "" + (42.5 - 15) + "%";
+                l7_left.style.left = "" + (42.5 + 15) + "%";
+                l8_left.style.left = "" + (42.5 + 15) + "%";
+
+                l4_left.classList.remove('type-six');
+                l5_left.classList.remove('type-six');
+
+                l6_left.classList.remove('hide');
+                l7_left.classList.remove('hide');
+                l8_left.classList.remove('hide');
+                l4_left.classList.add('type-eight');
+                l5_left.classList.add('type-eight');
+                l6_left.classList.add('type-eight');
+            } else {
+
+                l4_left.style.left = "" + (42.5 - 25) + "%";
+                l5_left.style.left = "" + (42.5 + 25) + "%";
+
+                l4_left.classList.remove('type-six');
+                l5_left.classList.remove('type-six');
+                l6_left.classList.add('hide');
+                l7_left.classList.add('hide');
+                l8_left.classList.add('hide');
+
+
+                l4_left.classList.remove('type-eight');
+                l5_left.classList.remove('type-eight');
+                l6_left.classList.remove('type-eight');
+            }
+
+
+            if (ln === 0 || ln === 1) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>BELUM</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>KALO BELUM</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 2 || ln === 3) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                quotesWrapper1.classList.add('reverse');
+                quotesWrapper2.classList.add('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>OTW TAPI</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>OTW ?</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 4 || ln === 5) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                //robot
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>BISA</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>KOK</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 6 || ln === 7) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>LO YANG</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>LO YANG</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 8 || ln === 9) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>BUKANNYA ADU</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>MALAH</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 10 || ln === 11) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>TIAP HARI</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>TIAP HARI GA</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 12 || ln === 13) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                quotesWrapper1.classList.add('reverse');
+                quotesWrapper2.classList.add('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>TELAT</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>GAK BOLEH TELAT</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+
+            } else if (ln === 14 || ln === 15) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                quotesWrapper1.classList.add('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>AJA</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>BIAR CEPET</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+
+            } else if (ln === 16 || ln === 17) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>DIEM DI DUNIA</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>BERKARYA DI DUNIA</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 18 || ln === 19) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>BENAR ITU </div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>KOMEN ITU</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 20 || ln === 21) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>YANG GAK</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>SILAKAN</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 22 || ln === 23) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                quotesWrapper1.classList.add('reverse');
+                quotesWrapper2.classList.add('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>LO ADALAH</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>GUE</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 24 || ln === 25) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>GILIRAN DI</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>KERJAAN</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 26 || ln === 27) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                quotesWrapper1.classList.add('reverse');
+                quotesWrapper2.classList.add('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>MINTA MAAF</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>MINTA IZIN</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 28 || ln === 29) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>PAS SENENG</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>PAS SUSAH NANYA</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else if (ln === 32 || ln === 33) {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>HABIS</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>TERBITLAH</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            } else {
+                quotesWrapper1.classList.remove('reverse');
+                quotesWrapper2.classList.remove('reverse');
+                tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>GAK</div>";
+                tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>PERGI TAPI</div>";
+                tes3[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'>JALAN TERUS</div>";
+            }
+
+
+            if (totalScore === 0) {
+                poin1[0].innerHTML = "<img src='koin.png' style='width:27%;margin-top:-5px;'> <font class='nilai' size='5px' color='white'>0</font>";
+            } else {
+                poin1[0].innerHTML = "<img src='koin.png' style='width:27%;margin-top:-5px;'> <font class='nilai' size='5px' color='white'>" + totalScore + "</font>";
+            }
+
+            if (i === 1) {
+                if (!localStorage.getItem('levelCompleted')) {
+                    timer1[0].innerHTML = "02:00";
+                    var fiveMinutes = 60 * 1
+                    display = document.querySelector('.timer');
+                } else {
+                    timer1[0].innerHTML = "02:00";
+                    var fiveMinutes = 30 * 1
+                    display = document.querySelector('.timer');
+                }
+                startTimer(fiveMinutes, display);
+            }
+
+            i += 1;
+
+
             currentLevel = ln;
             ctx.fillRect(0, 0, w, h);
             completeDiv.style.display = "none";
@@ -670,21 +1492,96 @@
             shuffleBtn.style.transform = "translateX(0)";
             hintBtn.style.transform = "translateX(0)";
             _s("levelNum").textContent = ln + 1;
+
             var levelContent = levels[ln][0];
             levelContent = levelContent[levelContent.length - 1].split("");
             levelContent.sort(function (x, y) { return Math.random() - 0.5 });
             for (var n = 0; n < levelContent.length; n++) {
                 lt[n].textContent = levelContent[n];
-                //lt[n].style.transform = "rotate("+Math.floor(Math.random()*40-20)+"deg)";
             }
-            lContainer.style.transform = "scale(1) rotate(0deg)";
-            for (var n = 0; n < levels[ln][0].length; n++) {
-                var txt = "";
-                for (var x = 0; x < levels[ln][0][n].length; x++) {
-                    txt += "<div class='wl'>.</div>";
+
+            lContainer.style.opacity = "1";
+            if (levels[ln][0].length === 1) {
+                for (var n = 0; n < levels[ln][0].length; n++) {
+                    var txt = "";
+                    for (var x = 0; x < levels[ln][0][n].length; x++) {
+                        txt += "<div class='wl'>.</div>";
+                    }
+                    wcnt[n].innerHTML = txt;
                 }
-                wcnt[n].innerHTML = txt;
+            } else {
+                for (var n = 0; n < levels[ln][0].length - 1; n++) {
+                    var txt = "";
+                    var txt2 = "";
+
+                    for (var x = 0; x < levels[ln][0][n].length; x++) {
+                        if (ln === 4 && levels[ln][0][n].length === 5) {
+                            if (x === 0) {
+                                txt += "<div class='wld'>N</div>";
+                                txt += "<div class='wld'>Y</div>";
+                                txt += "<div class='wld'>E</div>";
+                                txt += "<div class='wl'>.</div>";
+                            } else {
+                                txt += "<div class='wl'>.</div>";
+                            }
+                        } else if (ln === 24 && levels[ln][0][n].length === 7) {
+                            if (x === 6) {
+                                txt += "<div class='wl'>.</div>";
+                                txt += "<div class='wld'>I</div>";
+                                txt += "<div class='wld'>N</div>";
+                            } else {
+                                txt += "<div class='wl'>.</div>";
+                            }
+                        } else if (ln === 2 && levels[ln][0][n].length === 6) {
+                            if (x === 5) {
+                                txt += "<div class='wl'>.</div>";
+                                txt += "<div class='wld'>N</div>";
+                                txt += "<div class='wld'>Y</div>";
+                                txt += "<div class='wld'>A</div>";
+                            } else {
+                                txt += "<div class='wl'>.</div>";
+                            }
+
+                        } else if (ln === 3 && levels[ln][0][n].length === 5) {
+                            if (x === 4) {
+                                txt += "<div class='wl'>.</div>";
+                                txt += "<div class='wld'>A</div>";
+                                txt += "<div class='wld'>N</div>";
+                            } else {
+                                txt += "<div class='wl'>.</div>";
+                            }
+                            wcnt[n + 1].innerHTML = txt;
+                        } else if (ln === 31) {
+                            if (x === 6) {
+                                txt += "<div class='wl'>.</div>";
+                                txt += "<div class='wld'>S</div>";
+                                txt += "<div class='wld'>I</div>";
+                            } else {
+                                txt += "<div class='wl'>.</div>";
+                            }
+                            wcnt[n + 1].innerHTML = txt;
+                        } else if (ln === 33) {
+                            if (x === 6) {
+                                txt += "<div class='wl'>.</div>";
+                                txt += "<div class='wld'>K</div>";
+                                txt += "<div class='wld'>A</div>";
+                                txt += "<div class='wld'>S</div>";
+                                txt += "<div class='wld'>I</div>";
+                            } else {
+                                txt += "<div class='wl'>.</div>";
+                            }
+                        } else {
+                            txt += "<div class='wl'>.</div>";
+                        }
+                    }
+
+
+
+                    wcnt[n].innerHTML = txt;
+                }
             }
+
+
 
             var curvePoints = [];
             for (var n = 0; n < 20; n++) {
@@ -706,6 +1603,7 @@
                     ctx.lineTo(curvePoints[n] - dx, fy * n);
                 }
                 ctx.lineTo(0, h);
+                ctx.fillStyle = "transparent";
                 ctx.fill();
                 ctx.closePath();
                 ctx.beginPath();
@@ -714,6 +1612,7 @@
                     ctx.lineTo(curvePoints[n] + dx, fy * n);
                 }
                 ctx.lineTo(w, h);
+                ctx.fillStyle = "transparent";
                 ctx.fill();
                 ctx.closePath();
                 dx += 10;
@@ -725,11 +1624,108 @@
 
             var intv = setInterval(drawAnim, 20);
 
+            if (ln % 2 !== 1) {
+
+                for (var n = 0; n < levels[ln + 1][0].length; n++) {
+                    var txt = "";
+                    var txt2 = "";
+                    for (var x = 0; x < levels[ln + 1][0][n].length; x++) {
+                        //buat adu domba
+                        if (levels[ln + 1][0][n].length == 8 && ln == 8) {
+                            if (x == 3) {
+                                txt += "<div class='wl type-space'>.</div>";
+                                txt += "<div class='wl'>.</div>";
+                            } else {
+                                txt += "<div class='wl'>.</div>";
+                            }
+                        } else if (ln === 30) {
+                            if (x === 6) {
+                                txt += "<div class='wl'>.</div>";
+                                txt += "<div class='wld'>S</div>";
+                                txt += "<div class='wld'>I</div>";
+                            } else {
+                                txt += "<div class='wl'>.</div>";
+                            }
+                        } else if (ln === 2) {
+                            if (x === 4) {
+                                txt += "<div class='wl'>.</div>";
+                                txt += "<div class='wld'>A</div>";
+                                txt += "<div class='wld'>N</div>";
+                            } else {
+                                txt += "<div class='wl'>.</div>";
+                            }
+                        } else {
+                            txt += "<div class='wl'>.</div>";
+                        }
+                    }
+                    wcnt[n + 1].innerHTML = txt;
+                }
+            }
+
+
+            if (ln % 2 === 1) {
+                for (var n = 0; n < levels[ln - 1][0].length; n++) {
+                    currentWord = levels[ln - 1][0][n];
+                    var wordPos = levels[ln - 1][0].indexOf(currentWord);
+                    var txt = "";
+                    var wordArr = currentWord.split("");
+                    for (var n = 0; n < currentWord.length; n++) {
+                        if (ln === 5 && currentWord.length === 5) {
+                            if (n == 0) {
+                                txt += "<div class='wld'>N</div>";
+                                txt += "<div class='wld'>Y</div>";
+                                txt += "<div class='wld'>E</div>";
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else if (ln === 25 && currentWord.length === 7) {
+                            if (n === 6) {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                                txt += "<div class='wld'>I</div>";
+                                txt += "<div class='wld'>N</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else if (ln == 3 && currentWord.length === 6) {
+                            if (n === 5) {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                                txt += "<div class='wld'>N</div>";
+                                txt += "<div class='wld'>Y</div>";
+                                txt += "<div class='wld'>A</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else if (ln === 30) {
+                            if (n === 6) {
+                                txt += "<div class='wl'>" + wordArr[n] + "</div>";
+                                txt += "<div class='wld'>S</div>";
+                                txt += "<div class='wld'>I</div>";
+                            } else {
+                                txt += "<div class='wl'>" + wordArr[n] + "</div>";
+                            }
+                        } else if (ln == 33) {
+                            if (n === 7) {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                                txt += "<div class='wld'>K</div>";
+                                txt += "<div class='wld'>A</div>";
+                                txt += "<div class='wld'>S</div>";
+                                txt += "<div class='wld'>I</div>";
+                            } else {
+                                txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                            }
+                        } else {
+                            txt += "<div class='wld'>" + wordArr[n] + "</div>";
+                        }
+                    }
+                    wcnt[wordPos].innerHTML = txt
+                }
+            }
+
         }
 
-        //startLevel(0);
 
-        //star...
+
         function star(x) {
             var txt = "";
             for (var n = 0; n < 3; n++) {
@@ -738,16 +1734,17 @@
             _s("star").innerHTML = txt;
         }
 
-        //menu
-
         nextBtn.addEventListener("click", function () {
             if ((currentLevel + 1) < levels.length) {
                 startLevel(currentLevel + 1);
-                //sounds.levelStart.play().catch(function(err){alert(err)});
-                play("levelStart");
             }
             else {
-                startLevel(0);
+                getLevel();
+                if (randomLevel % 2 === 1) {
+                    startLevel(randomLevel - 1);
+                } else {
+                    startLevel(randomLevel);
+                }
                 //currentLevel = 0;
             }
         })
@@ -755,22 +1752,122 @@
         var wrong = 0;
         var totalCoin = 0;
         var bonusCoin = 0;
+        var levelCompleted = [];
+
+        function getRandomInt(min, max) {
+            min = Math.ceil(min);
+            max = Math.floor(max);
+            return Math.floor(Math.random() * (max - min + 1)) + min;
+        }
+
+        Array.prototype.max = function () {
+            return Math.max.apply(null, this);
+        };
+
+        Array.prototype.min = function () {
+            return Math.min.apply(null, this);
+        };
+
+        var randomLevel;
+        function getLevel() {
+            do {
+                randomLevel = getRandomInt(countLevels.min(), countLevels.max());
+            } while (levelCompleted.includes(randomLevel));
+        }
+
+
         function levelComplete(x) {
+            tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+            tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
             completeDiv.style.display = "block";
-            var starCount;
-            if (wrong < 2) {
-                starCount = 3;
+            nextBtnCnt.style.display = "block";
+            _s("logoBukan").style.display = "none";
+            _s("logoBukan2").style.display = "block";
+            pointsWrapper.style.display = "none";
+            _s("complete").style.display = "block";
+            totalScore += tempTotalScore;
+            tempTotalScore = 0;
+
+            levelCompleted.push(x);
+
+
+            for (var i = 0; i < levelCompleted.length; i++) {
+                if (i === levelCompleted.length - 1) {
+                    if ((levelCompleted[i] % 2) !== 1) {
+                        if (levelCompleted.length === levels.length) {
+                            localStorage.setItem('levelCompleted', '1');
+                            quotesWrapper1.style.opacity = "0";
+                            quotesWrapper2.style.opacity = "0";
+
+                            tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+                            tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+                            completeDiv.style.display = "block";
+                            nextBtnCnt.style.display = "block";
+                            _s("logoBukan").style.display = "none";
+                            _s("logoBukan2").style.display = "block";
+                            pointsWrapper.style.display = "none";
+                            _s("complete").style.display = "block";
+
+                            var display = document.querySelector('.timer');
+
+                            clearInterval(interval);
+                            timerStop = timer;
+
+                            swal({
+                                title: "LEVEL SELESAI",
+                                button: {
+                                    text: "LANJUT",
+
+                                },
+                                dangerMode: true,
+                            }).then((willDelete) => {
+                                stopGameAudio();
+                                playGameLeaderboardAudio();
+                                submitScore(totalScore, 1);
+                            });
+                        } else {
+                            startLevel(x + 1);
+                        }
+                    }
+                    else {
+                        if (levelCompleted.length === levels.length) {
+                            localStorage.setItem('levelCompleted', '1');
+                            quotesWrapper1.style.opacity = "0";
+                            quotesWrapper2.style.opacity = "0";
+                            tes1[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+                            tes2[0].innerHTML = "<div class='tes' style='font-size:28px;font-weight:bold'></div>";
+                            completeDiv.style.display = "block";
+                            nextBtnCnt.style.display = "block";
+                            _s("logoBukan").style.display = "none";
+                            _s("logoBukan2").style.display = "block";
+                            pointsWrapper.style.display = "none";
+                            _s("complete").style.display = "block";
+                            var display = document.querySelector('.timer');
+                            clearInterval(interval);
+                            timerStop = timer;
+                            swal({
+                                title: "LEVEL SELESAI",
+                                button: {
+                                    text: "LANJUT",
+
+                                },
+                                dangerMode: true,
+                            }).then((willDelete) => {
+                                stopGameAudio();
+                                playGameLeaderboardAudio();
+                                submitScore(totalScore, 1);
+                            });
+                        } else {
+                            getLevel();
+                            if (randomLevel % 2 === 1) {
+                                startLevel(randomLevel - 1);
+                            } else {
+                                startLevel(randomLevel);
+                            }
+                        }
+                    }
+                }
             }
-            else if (wrong < 4) {
-                starCount = 2;
-            }
-            else {
-                starCount = 1;
-            }
-            wrong = 0;
-            star(starCount);
-            updateLevelMenu(currentLevel + 1, bonusCoin, starCount);
-            bonusCoin = 0;
             play("levelComplete");
         }
 
@@ -779,11 +1876,10 @@
             levelContent = levelContent[levelContent.length - 1].split("").sort(function (x, y) { return Math.random() - 0.5 });
             for (var n = 0; n < levelContent.length; n++) {
                 lt[n].textContent = levelContent[n];
-                //lt[n].style.transform = "rotate("+Math.floor(Math.random()*40-20)+"deg)";
             }
             lContainer.style.transform = "scale(0.1) rotate(720deg)";
             setTimeout(function () {
-                lContainer.style.transform = "scale(1) rotate(0deg)";
+                lContainer.style.opacity = "1";
             }, 500)
             play("shuffle");
         }
@@ -853,7 +1949,6 @@
             elm.innerHTML = txt;
         }
 
-        //updateLevelMenu(2,65,3);
 
         var coinElm = _s("coin");
         function updateCoin(x) {
@@ -877,13 +1972,11 @@
                     if (temp1.indexOf(currentWord) < 0) {
                         temp1.push(currentWord);
                         updateCoin(-20);
-                        //play("right");
                         if (temp1.length >= levels[currentLevel][0].length) {
                             temp1 = [];
                             temp2 = [];
                             setTimeout(function () {
                                 levelComplete();
-                                //    startLevel(currentLevel+1);
                             }, 2000)
 
                             setTimeout(function () {
@@ -891,7 +1984,7 @@
                                 for (var n = 0; n < wls.length; n++) {
                                     wls[n].style.transform = "translateY(" + Math.floor(100 + Math.random() * 200) + "px) rotate(" + Math.floor(Math.random() * 90 - 45) + "deg)";
                                     wls[n].style.opacity = 0;
-                                    lContainer.style.transform = "scale(0) rotate(0)";
+                                    lContainer.style.opacity = "0";
                                     levelDiv.style.transform = "translateY(-100px)";
                                     shuffleBtn.style.transform = "translateX(-100px)";
                                     hintBtn.style.transform = "translateX(100px)";
